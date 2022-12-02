@@ -4,6 +4,8 @@
  */
 package Encounters;
 
+import Medicines.Medicine;
+import Medicines.MedicineDirectory;
 import java.util.Date;
 
 /**
@@ -15,6 +17,7 @@ public class Encounter extends VitalSigns{
     private String procedure;
     private String diagnosis;
     private Date encounterDate;
+    private MedicineDirectory medicineList;
     
     public Encounter(float bodyTemp, int bloodPressure, float weight, float height, 
             String medicinePrescribed , String procedure , String diagnosis, Date encounterDate){
@@ -57,5 +60,13 @@ public class Encounter extends VitalSigns{
         this.diagnosis = diagnosis;
     }
     
-
+    public Medicine getMedicineAvailability(String medName){
+        for (int i=0; i < medicineList.getMedicineList().size()  ; i++)
+        {
+            if (medicineList.getMedicineList().get(i).equals(medName)){
+                return medicineList.getMedicineList().get(i);
+            }
+        }
+        return null;
+    }
 }
