@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model;
+package Patient;
+
+import Encounters.EncounterHistory;
 
 /**
  *
@@ -10,7 +12,7 @@ package Model;
  */
 public class Patient extends Person{
     
-    private int patiendID;
+    private int patientID;
     private EncounterHistory encounterHistory;
     
     public Patient(String firstName, String lastName, String buildingName, String unitNumber, String city, 
@@ -18,12 +20,12 @@ public class Patient extends Person{
         super(firstName, lastName, buildingName, unitNumber, city,  state, zipCode, email, password, ssn, age);
     }
 
-    public int getPatiendID() {
-        return patiendID;
+    public int getPatientID() {
+        return patientID;
     }
 
-    public void setPatiendID(int patiendID) {
-        this.patiendID = patiendID;
+    public void setPatientID(int patiendID) {
+        this.patientID = patiendID;
     }
 
     public EncounterHistory getEncounterHistory() {
