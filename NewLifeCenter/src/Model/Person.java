@@ -22,7 +22,9 @@ public class Person {
     private int age;
 
     
-    public Person(String firstName, String lastName, String buildingName, String unitNumber, String city, String state, int zipCode, String email, String password, int ssn, int age) {
+    public Person(String firstName, String lastName, String buildingName, 
+            String unitNumber, String city, String state, int zipCode, 
+            String email, String password, int ssn, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.buildingName = buildingName;

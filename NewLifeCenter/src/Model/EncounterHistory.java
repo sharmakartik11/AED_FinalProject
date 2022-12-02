@@ -8,6 +8,12 @@ package Model;
  *
  * @author shivaniguglani
  */
-public class EncounterHistory {
+public class EncounterHistory extends Encounter{
+    
+    
+    public EncounterHistory(float bodyTemp, int bloodPressure, float weight, float height, 
+            String medicinePrescribed , String procedure , String diagnosis){
+        super(bodyTemp, bloodPressure, weight, height, medicinePrescribed, procedure , diagnosis);
+    }
     
 }
