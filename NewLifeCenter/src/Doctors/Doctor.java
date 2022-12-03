@@ -49,5 +49,12 @@ public class Doctor extends Person{
         this.speciality = speciality;
     }
     
+    public enum speciality{
+        GeneralPhysician,
+        GynaecologyAndObstetrics,
+        Urology,
+        Embrylogy,
+        Neonatologist;
+    }
     
 }

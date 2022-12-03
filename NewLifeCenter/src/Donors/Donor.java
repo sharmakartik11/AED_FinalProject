@@ -13,6 +13,7 @@ import Patient.Person;
 public class Donor extends Person{
     
     private int donorID;
+    private String eggType;
     private float height;
     private float weight;
     private String eyeColor;
@@ -20,7 +21,7 @@ public class Donor extends Person{
     private String occupation;
     private String familyDiseaseHistory;
 
-    public Donor(int donorID, float height, float weight, String eyeColor, int IQ, String occupation, String familyDiseaseHistory, String firstName, String lastName, String buildingName, String unitNumber, String city, String state, int zipCode, String email, String password, int ssn, int age) {
+    public Donor(int donorID, String eggType, float height, float weight, String eyeColor, int IQ, String occupation, String familyDiseaseHistory, String firstName, String lastName, String buildingName, String unitNumber, String city, String state, int zipCode, String email, String password, int ssn, int age) {
         super(firstName, lastName, buildingName, unitNumber, city, state, zipCode, email, password, ssn, age);
         this.donorID = donorID;
         this.height = height;
@@ -29,6 +30,14 @@ public class Donor extends Person{
         this.IQ = IQ;
         this.occupation = occupation;
         this.familyDiseaseHistory = familyDiseaseHistory;
+    }
+
+    public String getEggType() {
+        return eggType;
+    }
+
+    public void setEggType(String eggType) {
+        this.eggType = eggType;
     }
 
     public int getDonorID() {

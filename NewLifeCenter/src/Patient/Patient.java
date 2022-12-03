@@ -13,10 +13,11 @@ import Encounters.EncounterHistory;
 public class Patient extends Person{
     
     private int patientID;
+    private String gender;
     private EncounterHistory encounterHistory;
     
     public Patient(String firstName, String lastName, String buildingName, String unitNumber, String city, 
-            String state, int zipCode, String email, String password, int ssn, int age, int patientID){
+            String state, int zipCode, String email, String password, int ssn, int age, int patientID, String gender){
         super(firstName, lastName, buildingName, unitNumber, city,  state, zipCode, email, password, ssn, age);
     }
 
