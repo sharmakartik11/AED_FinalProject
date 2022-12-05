@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui;
+package UI;
 
 /**
  *
@@ -36,9 +36,9 @@ public class AddEncounterJPanel extends javax.swing.JPanel {
         lblHeight = new javax.swing.JLabel();
         txtHeight = new javax.swing.JTextField();
         lblEyeColor = new javax.swing.JLabel();
-        comboEyeColor = new javax.swing.JComboBox<>();
+        comboEyeColor = new javax.swing.JComboBox<String>();
         lblDisease = new javax.swing.JLabel();
-        comboDisease = new javax.swing.JComboBox<>();
+        comboDisease = new javax.swing.JComboBox<String>();
         jTextField1 = new javax.swing.JTextField();
         btnRecord = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
@@ -61,7 +61,7 @@ public class AddEncounterJPanel extends javax.swing.JPanel {
 
         lblEyeColor.setText("Eye Color:");
 
-        comboEyeColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Black", "Brown", "Green", "Blue" }));
+        comboEyeColor.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Black", "Brown", "Green", "Blue" }));
         comboEyeColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboEyeColorActionPerformed(evt);
@@ -70,7 +70,7 @@ public class AddEncounterJPanel extends javax.swing.JPanel {
 
         lblDisease.setText("Family disease:");
 
-        comboDisease.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diabetes", "Asthama", "Alzheimer's", "Parkinson's" }));
+        comboDisease.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Diabetes", "Asthama", "Alzheimer's", "Parkinson's" }));
 
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("INSERT SOME IMAGE HERE");
