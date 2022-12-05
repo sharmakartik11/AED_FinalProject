@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Doctors;
+package NewLife.Doctors;
 
-import Patient.Person;
+import NewLife.Patient.Person;
 
 /**
  *
@@ -17,9 +17,9 @@ public class Doctor extends Person{
     private String speciality;
 
     public Doctor(String firstName, String lastName, String buildingName, String unitNumber, String city, 
-            String state, int zipCode, String email, String password, int ssn, int age, 
+            String state, int zipCode, String email, int ssn, int age, String gender,
             int doctorID, String doctorName, String speciality) {
-        super(firstName, lastName, buildingName, unitNumber, city,  state, zipCode, email, password, ssn, age);
+        super(firstName, lastName, buildingName, unitNumber, city,  state, zipCode, email, ssn, age, gender);
         this.doctorID = doctorID;
         this.doctorName = doctorName;
         this.speciality = speciality;

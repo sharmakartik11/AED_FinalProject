@@ -4,16 +4,16 @@
  */
 package newlifecenter;
 
-import Doctors.Doctor;
-import Doctors.DoctorDirectory;
-import Donors.Donor;
-import Donors.DonorDirectory;
-import Encounters.EncounterHistory;
-import Medicines.Medicine;
-import Medicines.MedicineDirectory;
-import Patient.Patient;
-import Patient.PatientDirectory;
-import Patient.PersonDirectory;
+import NewLife.Doctors.Doctor;
+import NewLife.Doctors.DoctorDirectory;
+import NewLife.Donors.Donor;
+import NewLife.Donors.DonorDirectory;
+import NewLife.Encounters.EncounterHistory;
+import NewLife.Medicines.Medicine;
+import NewLife.Medicines.MedicineDirectory;
+import NewLife.Patient.Patient;
+import NewLife.Patient.PatientDirectory;
+import NewLife.Patient.PersonDirectory;
 
 /**
  *
@@ -89,24 +89,24 @@ public class NewLifeCenter {
     private void populateDefaultValues(){
            //doctors             
 //    public Doctor(String firstName, String lastName, String buildingName, String unitNumber, String city, 
-//            String state, int zipCode, String email, String password, int ssn, int age, 
+//            String state, int zipCode, String email, int ssn, int age, gender, 
 //            int doctorID, String doctorName, String speciality)
 
         this.docDir.addDoctor(new Doctor("Joseph" , "Tribbiani" , "Elevate" , "209" , "Cambridge" 
-                ,"MA" , 02141 , "j.tribbiaini@newcare.org" , "1234" 
-                , 123456780 , 55 , 10001 ,  "Dr Joseph", "GynaecologyAndObstetrics"));
+                ,"MA" , 02141 , "j.tribbiaini@newcare.org"
+                , 123456780 , 55 , "Male", 10001 ,  "Dr Joseph", "GynaecologyAndObstetrics"));
         this.docDir.addDoctor(new Doctor("Richard" , "Bannet" , "Promot" , "1092" , "Boston" 
-                ,"MA" , 02142 , "r.bannet@newcare.org" , "1234" 
-                , 123456781 , 39 , 10002 ,  "Dr Richard", "GeneralPhysician"));
+                ,"MA" , 02142 , "r.bannet@newcare.org" 
+                , 123456781 , 39 , "Male" , 10002 ,  "Dr Richard", "GeneralPhysician"));
         this.docDir.addDoctor(new Doctor("Pheobe" , "Zhilov" , "Munel" , "002" , "Boston" 
-                ,"MA" , 03242 , "p.zhilov@newcare.org" , "1234" 
-                , 123456782 , 36 , 10003 ,  "Dr Phoebe", "Urology"));
+                ,"MA" , 03242 , "p.zhilov@newcare.org"
+                , 123456782 , 36 , "Female" , 10003 ,  "Dr Phoebe", "Urology"));
         this.docDir.addDoctor(new Doctor("Janice" , "Chad" , "Lotus Ave" , "707" , "Boston" 
-                , "MA" , 03241 , "j.chad@newcare.org" , "1234" 
-                , 123456783 , 57 , 10004 ,  "Dr Janice", "Embrylogy"));
+                , "MA" , 03241 , "j.chad@newcare.org" 
+                , 123456783 , 57 , "Female", 10004 ,   "Dr Janice", "Embrylogy"));
         this.docDir.addDoctor(new Doctor("Gunther" , "Quid" , "Plum Ave" , "1009" , "Boston" 
-                , "MA" , 03240 , "j.chad@newcare.org" , "1234" 
-                , 123456784 , 28 , 10005 ,  "Dr Gunther", "Neonatologist"));
+                , "MA" , 03240 , "j.chad@newcare.org"
+                , 123456784 , 28 , "Male", 10005 ,  "Dr Gunther", "Neonatologist"));
         
         
         //medicines
@@ -133,19 +133,19 @@ public class NewLifeCenter {
         this.donorDir.addDonor(new Donor(001 , "Sperm" , 177 , 140 , "Blue" , 150 
                             , "EntertainmentAndMedia" , "Diabetes" , "Kian" , "Willis" 
                 , "ABCD" , "102" , "Boston" , "MA" , 02141 
-                , "Williskian.gmail.com" , "1234" , 102987231, 20));
+                , "Williskian.gmail.com" , 102987231, 20, "Male"));
         this.donorDir.addDonor(new Donor(002 , "Ovum" , 109 , 100 , "Brown" , 100 
                             , "Finance" , "Alzhiemers" , "Jayce" , "Hoffman" 
                 , "ABCD" , "102" , "Boston" , "MA" , 02141 
-                , "jaycehoffman.gmail.com" , "1234" , 102987232, 24));
+                , "jaycehoffman.gmail.com" , 102987232, 24,"Female"));
         this.donorDir.addDonor(new Donor(003 , "Ovum" , 127 , 130 , "Grey" , 120 
                             , "Healthcare" , "None" , "Angeline" , "Waters" 
                 , "ABCD" , "102" , "Boston" , "MA" , 02141 
-                , "watersa.gmail.com" , "1234" , 102987233, 22));
+                , "watersa.gmail.com" , 102987233, 22 ,"Female"));
         this.donorDir.addDonor(new Donor(004 , "Sperm" , 187 , 230 , "Brown" , 100 
                             , "Construction" , "None" , "Cameron" , "Mitchell" 
                 , "ABCD" , "102" , "Boston" , "MA" , 02141 
-                , "c.mitchell.gmail.com" , "1234" , 102987234, 28));
+                , "c.mitchell.gmail.com"  , 102987234, 28, "Male"));
         
         //patients
         //public Patient(String firstName, String lastName, String buildingName, String unitNumber, String city, 

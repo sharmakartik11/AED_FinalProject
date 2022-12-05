@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Donors;
+package NewLife.Donors;
 
-import Patient.Person;
+import NewLife.Patient.Person;
 
 /**
  *
@@ -21,8 +21,8 @@ public class Donor extends Person{
     private String occupation;
     private String familyDiseaseHistory;
 
-    public Donor(int donorID, String eggType, float height, float weight, String eyeColor, int IQ, String occupation, String familyDiseaseHistory, String firstName, String lastName, String buildingName, String unitNumber, String city, String state, int zipCode, String email, String password, int ssn, int age) {
-        super(firstName, lastName, buildingName, unitNumber, city, state, zipCode, email, password, ssn, age);
+    public Donor(int donorID, String eggType, float height, float weight, String eyeColor, int IQ, String occupation, String familyDiseaseHistory, String firstName, String lastName, String buildingName, String unitNumber, String city, String state, int zipCode, String email, int ssn, int age, String gender) {
+        super(firstName, lastName, buildingName, unitNumber, city, state, zipCode, email, ssn, age, gender);
         this.donorID = donorID;
         this.height = height;
         this.weight = weight;

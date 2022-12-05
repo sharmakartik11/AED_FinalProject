@@ -60,7 +60,7 @@ public class LoginPageJPanel extends javax.swing.JPanel {
         jLabel4.setText("Role");
 
         RoleDropDownMenu.setBackground(new java.awt.Color(255, 255, 153));
-        RoleDropDownMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        RoleDropDownMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Donor", "Doctor", "Admin" }));
         RoleDropDownMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RoleDropDownMenuActionPerformed(evt);
