@@ -15,31 +15,24 @@ public class DoctorDirectory {
     private ArrayList<Doctor> doctorList;
     
     public DoctorDirectory(){
-        this.doctorList = new ArrayList<Doctor>();
+        doctorList = new ArrayList<Doctor>();
     }
-
-    public ArrayList<Doctor> getDoctorList() {
+    
+    public ArrayList<Doctor> addDoctor(Doctor c){
+       
+        doctorList.add(c);
         return doctorList;
     }
-
-    public void setDoctorList(ArrayList<Doctor> doctorList) {
-        this.doctorList = doctorList;
+     public ArrayList<Doctor> deleteDoctor(Doctor c){
+       
+        doctorList.remove(c);
+        return doctorList;
+    }
+    public ArrayList<Doctor> getDoctorList() {
+        return doctorList;
+        
     }
     
-    public void addDoctor(Doctor newDoctor){
-            doctorList.add(newDoctor);        
-    }
     
-    public void deleteDoctor(Doctor doc){
-        doctorList.remove(doc);
-    }
     
-    public Doctor searchDoctorBySpeciality(String speciality){
-        for (int counterDoc = 0; counterDoc < doctorList.size(); counterDoc++){
-            if (doctorList.get(counterDoc).equals(speciality)){
-                return doctorList.get(counterDoc);
-            }
-        }
-        return null;
-    }
 }

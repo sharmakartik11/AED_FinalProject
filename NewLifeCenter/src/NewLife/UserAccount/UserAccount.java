@@ -11,16 +11,17 @@ package NewLife.UserAccount;
 public class UserAccount {
     private String username;
     private String password;
+    private Employee employee;
     private Role role;
     private WorkList workQueue;
+    
 
-    public UserAccount(String username, String password, Role role, WorkList workQueue) {
-        this.username = username;
-        this.password = password;
-        this.role = role;
-        this.workQueue = workQueue;
+    public UserAccount() {
+        workQueue = new WorkList();
     }
-
+    
+    
+    
     public String getUsername() {
         return username;
     }
@@ -41,17 +42,27 @@ public class UserAccount {
         return role;
     }
 
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Employee getEmployee() {
+        return employee;
     }
 
     public WorkList getWorkQueue() {
         return workQueue;
     }
 
-    public void setWorkQueue(WorkList workQueue) {
-        this.workQueue = workQueue;
-    }
     
+    
+    @Override
+    public String toString() {
+        return username;
+    }
     
 }

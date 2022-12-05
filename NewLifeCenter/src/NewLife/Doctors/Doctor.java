@@ -10,51 +10,57 @@ import NewLife.Patient.Person;
  *
  * @author shivaniguglani
  */
-public class Doctor extends Person{
+public class Doctor{
     
-    private int doctorID;
-    private String doctorName;
-    private String speciality;
+    private String docName;
+    private String time;
+    private String type;
+    private String docType;
 
-    public Doctor(String firstName, String lastName, String buildingName, String unitNumber, String city, 
-            String state, int zipCode, String email, int ssn, int age, String gender,
-            int doctorID, String doctorName, String speciality) {
-        super(firstName, lastName, buildingName, unitNumber, city,  state, zipCode, email, ssn, age, gender);
-        this.doctorID = doctorID;
-        this.doctorName = doctorName;
-        this.speciality = speciality;
+    public String getDocType() {
+        return docType;
     }
 
-    public int getDoctorID() {
-        return doctorID;
+    public void setDocType(String docType) {
+        this.docType = docType;
     }
 
-    public void setDoctorID(int doctorID) {
-        this.doctorID = doctorID;
+    public String getType() {
+        return type;
     }
 
-    public String getDoctorName() {
-        return doctorName;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public void setDoctorName(String doctorName) {
-        this.doctorName = doctorName;
+    public String getTime() {
+        return time;
     }
 
-    public String getSpeciality() {
-        return speciality;
+    public void setTime(String time) {
+        this.time = time;
+    }
+    private String orderId;
+
+    public String getName() {
+        return docName;
     }
 
-    public void setSpeciality(String speciality) {
-        this.speciality = speciality;
+    public void setName(String customerName) {
+        this.docName = customerName;
     }
-    
-    public enum speciality{
-        GeneralPhysician,
-        GynaecologyAndObstetrics,
-        Urology,
-        Embrylogy,
-        Neonatologist;
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    @Override
+    public String toString() {
+        return docName;
     }
     
 }
