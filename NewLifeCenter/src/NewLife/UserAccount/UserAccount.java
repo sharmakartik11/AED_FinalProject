@@ -21,7 +21,6 @@ public class UserAccount {
     }
     
     
-    
     public String getUsername() {
         return username;
     }

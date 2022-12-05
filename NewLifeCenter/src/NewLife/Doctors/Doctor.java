@@ -5,12 +5,13 @@
 package NewLife.Doctors;
 
 import NewLife.Patient.Person;
+import NewLife.UserAccount.UserAccount;
 
 /**
  *
  * @author shivaniguglani
  */
-public class Doctor{
+public class Doctor extends UserAccount{
     
     private String docName;
     private String time;

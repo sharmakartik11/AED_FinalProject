@@ -5,12 +5,13 @@
 package NewLife.Donors;
 
 import NewLife.Patient.Person;
+import NewLife.UserAccount.UserAccount;
 
 /**
  *
  * @author shivaniguglani
  */
-public class Donor extends Person{
+public class Donor extends UserAccount{
     
     private int donorID;
     private String eggType;
@@ -22,7 +23,7 @@ public class Donor extends Person{
     private String familyDiseaseHistory;
 
     public Donor(int donorID, String eggType, float height, float weight, String eyeColor, int IQ, String occupation, String familyDiseaseHistory, String firstName, String lastName, String buildingName, String unitNumber, String city, String state, int zipCode, String email, int ssn, int age, String gender) {
-        super(firstName, lastName, buildingName, unitNumber, city, state, zipCode, email, ssn, age, gender);
+        
         this.donorID = donorID;
         this.height = height;
         this.weight = weight;
