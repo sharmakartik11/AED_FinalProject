@@ -20,11 +20,12 @@ public class Person {
     private String password;
     private int ssn;
     private int age;
+    private String gender;
 
     
     public Person(String firstName, String lastName, String buildingName, 
             String unitNumber, String city, String state, int zipCode, 
-            String email, String password, int ssn, int age) {
+            String email, int ssn, int age, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.buildingName = buildingName;
@@ -33,9 +34,9 @@ public class Person {
         this.state = state;
         this.zipCode = zipCode;
         this.email = email;
-        this.password = password;
         this.ssn = ssn;
         this.age = age;
+        this.gender = gender;
     }
 
     public int getSsn() {
@@ -116,14 +117,6 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
     
     

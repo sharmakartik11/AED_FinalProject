@@ -13,12 +13,12 @@ import Encounters.EncounterHistory;
 public class Patient extends Person{
     
     private int patientID;
-    private String gender;
+    
     private EncounterHistory encounterHistory;
     
     public Patient(String firstName, String lastName, String buildingName, String unitNumber, String city, 
-            String state, int zipCode, String email, String password, int ssn, int age, int patientID, String gender){
-        super(firstName, lastName, buildingName, unitNumber, city,  state, zipCode, email, password, ssn, age);
+            String state, int zipCode, String email, int ssn, int age, String gender, int patientID){
+        super(firstName, lastName, buildingName, unitNumber, city,  state, zipCode, email, ssn, age, gender);
     }
 
     public int getPatientID() {

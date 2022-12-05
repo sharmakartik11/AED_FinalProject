@@ -152,21 +152,21 @@ public class NewLifeCenter {
          //   String state, int zipCode, String email, String password, int ssn, int age, int patientID , string gender)
          
          this.patDir.addPatient(new Patient("Kaeden" , "Evans" , "333 WASHINGTON ST" , "201" , "Boston" , "MA" 
-          , 02101 , "kaeden.evans@gmail.com" , "1234" , 980765000 , 40 , 00001 , "Male"));
+          , 02101 , "kaeden.evans@gmail.com" , 980765000 , 40 , "Male", 00001 ));
          this.patDir.addPatient(new Patient("Sam" , "Kelly" , "212 COMMERCIAL ST" , "301" , "Boston" , "MA" 
-          , 02102 , "samkelly@gmail.com" , "1234" , 980765001 , 35 , 00002 , "Male"));
+          , 02102 , "samkelly@gmail.com", 980765001 , 35 ,  "Male", 00002 ));
          this.patDir.addPatient(new Patient("Neil" , "Key" , "200 SAINT BOTOLPH ST" , "201" , "Boston" , "MA" 
-          , 02103 , "neilkey20@gmail.com" , "1234" , 980765002 , 50 , 00003 , "Male"));
+          , 02103 , "neilkey20@gmail.com" , 980765002 , 50 , "Male" , 00003 ));
          this.patDir.addPatient(new Patient("Killian" , "Thornton" , "21 LYNN ST" , "401" , "Boston" , "MA" 
-          , 02113 , "killiant@gmail.com" , "1234" , 980765003 , 25 , 00004 , "Male"));
+          , 02113 , "killiant@gmail.com"  , 980765003 , 25 , "Male" ,00004));
          this.patDir.addPatient(new Patient("Kayla" , "Read" , "1 CHESTNUT ST" , "501" , "Boston" , "MA" 
-          , 02101 , "kalylar@gmail.com" , "1234" , 980765004 , 50 , 00005 , "Female"));
+          , 02101 , "kalylar@gmail.com" , 980765004 , 50 ,  "Female" , 00005));
          this.patDir.addPatient(new Patient("Madelynn" , "Adkins" , "212 COMMERCIAL ST" , "301" , "Boston" , "MA" 
-          , 02102 , "madkins@gmail.com" , "1234" , 980765005 , 29 , 00006 , "Female"));
+          , 02102 , "madkins@gmail.com"  , 980765005 , 29 ,  "Female" , 00006));
          this.patDir.addPatient(new Patient("Ariel" , "Sparks" , "37 LAWRENCE ST" , "0928" , "Boston" , "MA" 
-          , 02116 , "arielSparks@gmail.com" , "1234" , 980765006 , 36 , 00007 , "Female"));
+          , 02116 , "arielSparks@gmail.com" , 980765006 , 36 , "Female", 00007));
          this.patDir.addPatient(new Patient("Eliza" , "French" , "70 WALTHAM ST" , "401" , "Boston" , "MA" 
-          , 02115 , "Frencheliza@gmail.com" , "1234" , 980765007 , 25 , 00010 , "Female"));
+          , 02115 , "Frencheliza@gmail.com" , 980765007 , 25 ,  "Female", 00010));
     }
     
     
