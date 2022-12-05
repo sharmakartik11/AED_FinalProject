@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class AmbulanceDriverDirectory {
     ArrayList<AmbulanceDriver> ambulanceDriverList;
 
-    public AmbulanceDriverDirectory(ArrayList<AmbulanceDriver> ambulanceDriverList) {
-        this.ambulanceDriverList = ambulanceDriverList;
+    public AmbulanceDriverDirectory() {
+        ambulanceDriverList = new ArrayList<>();
     }
 
     public ArrayList<AmbulanceDriver> getAmbulanceDriverList() {
