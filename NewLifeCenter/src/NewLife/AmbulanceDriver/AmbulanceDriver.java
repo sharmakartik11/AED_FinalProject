@@ -4,11 +4,13 @@
  */
 package NewLife.AmbulanceDriver;
 
+import NewLife.UserAccount.UserAccount;
+
 /**
  *
  * @author kartik
  */
-public class AmbulanceDriver {
+public class AmbulanceDriver extends UserAccount{
     private String ambulanceDriverName;
     private String type;
 

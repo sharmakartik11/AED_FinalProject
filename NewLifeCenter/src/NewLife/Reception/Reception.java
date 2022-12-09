@@ -4,11 +4,13 @@
  */
 package NewLife.Reception;
 
+import NewLife.UserAccount.UserAccount;
+
 /**
  *
  * @author shivanidatar
  */
-public class Reception {
+public class Reception extends UserAccount{
     private String receptionName;
     private String orderId;
     private String type;

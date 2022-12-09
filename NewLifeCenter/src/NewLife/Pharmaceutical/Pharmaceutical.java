@@ -7,12 +7,13 @@ package NewLife.Pharmaceutical;
 import NewLife.Porter.Porter;
 import NewLife.Role.PorterRole;
 import NewLife.Role.SysAdminRole;
+import NewLife.UserAccount.UserAccount;
 
 /**
  *
  * @author kartik
  */
-public class Pharmaceutical {
+public class Pharmaceutical extends UserAccount{
     private String orderId;
     private SysAdminRole systemAdmin;
     private Porter deliveryMan;
