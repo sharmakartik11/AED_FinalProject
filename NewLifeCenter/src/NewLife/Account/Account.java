@@ -4,11 +4,13 @@
  */
 package NewLife.Account;
 
+import NewLife.UserAccount.UserAccount;
+
 /**
  *
  * @author shivaniguglani
  */
-public class Account {
+public class Account extends UserAccount{
     
     private String accountName;
     private String type;

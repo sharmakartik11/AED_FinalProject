@@ -4,11 +4,13 @@
  */
 package NewLife.Porter;
 
+import NewLife.UserAccount.UserAccount;
+
 /**
  *
  * @author shivanidatar
  */
-public class Porter {
+public class Porter extends UserAccount{
     private String deliveryManName;
 
     public String getDeliveryManName() {

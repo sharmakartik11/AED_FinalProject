@@ -4,11 +4,13 @@
  */
 package NewLife.Hospital;
 
+import NewLife.UserAccount.UserAccount;
+
 /**
  *
  * @author kartik
  */
-public class HospitalAdmin {
+public class HospitalAdmin extends UserAccount{
     private String hospitalName;
     private String address;
     private String orderId;
