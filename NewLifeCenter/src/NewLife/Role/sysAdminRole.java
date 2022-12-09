@@ -12,7 +12,7 @@ import javax.swing.JPanel;
  *
  * @author shivanidatar
  */
-public class sysAdminRole extends Role{
+public class SysAdminRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, NewLife business) {
