@@ -4,6 +4,10 @@
  */
 package NewLife.Pharmaceutical;
 
+import NewLife.Porter.Porter;
+import NewLife.Role.PorterRole;
+import NewLife.Role.SysAdminRole;
+
 /**
  *
  * @author kartik

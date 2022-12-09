@@ -4,6 +4,10 @@
  */
 package NewLife.UserAccount;
 
+import NewLife.Employee.Employee;
+import NewLife.Role.Role;
+import NewLife.WorkList.WorkList;
+
 /**
  *
  * @author shivaniguglani
