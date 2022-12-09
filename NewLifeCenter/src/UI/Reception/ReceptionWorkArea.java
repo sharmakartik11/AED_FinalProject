@@ -89,12 +89,13 @@ public class ReceptionWorkArea extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("WELCOME RECEPTIONIST !");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 196;
+        gridBagConstraints.ipadx = 99;
+        gridBagConstraints.ipady = -16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(42, 33, 0, 167);
         add(jLabel1, gridBagConstraints);
 
         manageOrganizationJButton.setBackground(new java.awt.Color(255, 255, 204));
@@ -103,17 +104,17 @@ public class ReceptionWorkArea extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 46;
+        gridBagConstraints.ipady = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(56, 233, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 181, 0, 0);
         add(manageOrganizationJButton, gridBagConstraints);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipady = 192;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
         add(jLabel2, gridBagConstraints);
 
         userJButton1.setBackground(new java.awt.Color(255, 255, 204));
@@ -130,22 +131,17 @@ public class ReceptionWorkArea extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 40;
-        gridBagConstraints.ipady = -8;
+        gridBagConstraints.ipadx = 101;
+        gridBagConstraints.ipady = -5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 233, 56, 0);
+        gridBagConstraints.insets = new java.awt.Insets(12, 181, 12, 0);
         add(userJButton1, gridBagConstraints);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 432;
-        gridBagConstraints.ipady = -40;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 6, 0, 0);
         add(jLabel3, gridBagConstraints);
 
         jLabel6.setBackground(new java.awt.Color(0, 102, 102));
@@ -153,7 +149,15 @@ public class ReceptionWorkArea extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Reception/Reception.png"))); // NOI18N
         jLabel6.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        add(jLabel6, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 195;
+        gridBagConstraints.ipady = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(33, 118, 0, 0);
+        add(jLabel6, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonActionPerformed(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
