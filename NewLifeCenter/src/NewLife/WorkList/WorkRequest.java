@@ -4,10 +4,11 @@
  */
 package NewLife.WorkList;
 
-import MedicalInformation.MedicalInformation;
+import NewLife.MedicalInformation.MedicalInformation;
 import NewLife.Account.Account;
 import NewLife.AmbulanceDriver.AmbulanceDriver;
 import NewLife.Doctors.Doctor;
+import NewLife.Government.Municipality;
 import NewLife.Hospital.HospitalAdmin;
 import NewLife.LabAssistant.LabAssistant;
 import NewLife.Patient.Patient;

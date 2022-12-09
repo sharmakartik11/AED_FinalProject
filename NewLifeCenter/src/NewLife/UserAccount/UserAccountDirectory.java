@@ -5,6 +5,7 @@
 package NewLife.UserAccount;
 
 import NewLife.Employee.Employee;
+import NewLife.Role.Role;
 import java.util.ArrayList;
 
 /**

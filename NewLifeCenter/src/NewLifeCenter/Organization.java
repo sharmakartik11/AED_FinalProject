@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import NewLife.Account.AccountDirectory;
 import NewLife.AmbulanceDriver.AmbulanceDriverDirectory;
 import NewLife.Porter.PorterDirectory;
-import NewLife.Doctor.DoctorDirectory;
+import NewLife.Doctors.DoctorDirectory;
 import NewLife.Employee.EmployeeDirectory;
 import NewLife.Government.MunicipalityDirectory;
 import NewLife.Hospital.HospitalAdminDirectory;

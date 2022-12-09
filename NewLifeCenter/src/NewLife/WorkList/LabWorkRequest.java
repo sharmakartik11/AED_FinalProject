@@ -4,7 +4,7 @@
  */
 package NewLife.WorkList;
 
-import MedicalInformation.MedicalInformation;
+import NewLife.MedicalInformation.MedicalInformation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;

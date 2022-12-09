@@ -6,7 +6,7 @@ package NewLifeCenter;
 
 import NewLife.Account.AccountDirectory;
 import NewLife.AmbulanceDriver.AmbulanceDriverDirectory;
-import NewLife.Doctor.DoctorDirectory;
+import NewLife.Doctors.DoctorDirectory;
 import NewLife.Government.MunicipalityDirectory;
 import NewLife.Hospital.HospitalAdminDirectory;
 import NewLife.LabAssistant.LabAssistantDirectory;
@@ -63,7 +63,7 @@ public class NewLife extends Organization{
     
     public static NewLife getInstance(){
         if(business==null){
-            business=new EcoSystem();
+            business=new NewLife();
         }
         return business;
     }
@@ -87,6 +87,4 @@ public class NewLife extends Organization{
        return true;
     }
     
-}
-
 }
