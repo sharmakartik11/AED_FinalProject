@@ -5,6 +5,17 @@
 
 package UI.Reception;
 
+import NewLife.Doctors.Doctor;
+import NewLife.Doctors.DoctorDirectory;
+import NewLife.Porter.PorterDirectory;
+import NewLife.UserAccount.UserAccount;
+import NewLife.WorkList.LabWorkRequest;
+import NewLifeCenter.NewLife;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author shivanidatar
@@ -12,8 +23,85 @@ package UI.Reception;
 public class AcceptOrRejectOrder extends javax.swing.JPanel {
 
     /** Creates new form AcceptOrRejectOrder */
-    public AcceptOrRejectOrder() {
+    JPanel userProcessContainer;
+    UserAccount userAccount;
+    NewLife ecosystem;
+    LabWorkRequest labTestWorkRequest;
+    double total = 0.0;
+    private PorterDirectory deliveryManDirectory;
+    private DoctorDirectory doctorDirectory;
+    private int index = -1;
+    public AcceptOrRejectOrder(JPanel userProcessContainer, NewLife ecosystem, UserAccount userAccount, LabWorkRequest labTestWorkRequest) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = ecosystem;
+        this.userAccount = userAccount;
+        this.labTestWorkRequest = labTestWorkRequest;
+        deliveryManDirectory = ecosystem.getDeliveryManDirectory();
+        doctorDirectory = ecosystem.getDoctorDirectory();
+        fillDoctorList(doctorDirectory.getDoctorList());
+        changeStatus();
+        display();
+    }
+    
+    private void changeStatus() {
+        switch(labTestWorkRequest.getStatus()){
+            case "Request to Hospital": {
+                acceptOrder.setText("Accept appointment");
+                declineOrder.setVisible(true);
+            }
+            case "Waiting for doctor to be assigned": {
+                acceptOrder.setText("Ping the Doctor");
+                declineOrder.setVisible(false);
+            }
+            default: {
+                declineOrder.setVisible(false);
+                acceptOrder.setVisible(false);
+            }
+        }
+        fillStatusUI();
+    }
+    
+    private void fillStatusUI() {
+        if(labTestWorkRequest.getDoctor()== null && !("ordered".equalsIgnoreCase(labTestWorkRequest.getStatus()) || "declined".equalsIgnoreCase(labTestWorkRequest.getStatus()))){
+            assignDoctorLabel.setVisible(true);
+            assignDoctorComboBox.setVisible(true);
+            
+            jButtonAddDeliveryMan.setVisible(true);
+            
+        }
+        else{
+            jButtonAddDeliveryMan.setVisible(false);
+            assignDoctorLabel.setVisible(false);
+            assignDoctorComboBox.setVisible(false);
+            
+        }
+    }
+    
+    public void fillDoctorList(ArrayList<Doctor> doctorList) {
+        if(labTestWorkRequest.getDeliverMan() == null) {
+            assignDoctorComboBox.setVisible(true);
+            for (Doctor doctor : doctorList) {
+                assignDoctorComboBox.addItem(doctor.getName());
+            }
+        }
+        else {
+            assignDoctorComboBox.setVisible(false);
+        } 
+    }
+    
+    private void display() {
+        
+        fillStatusUI();
+        status.setText(labTestWorkRequest.getStatus());
+        message.setText(labTestWorkRequest.getMessage());
+    }
+    
+    private void declineOrder(){
+        labTestWorkRequest.setStatus("Declined");
+        JOptionPane.showMessageDialog(null, "Appointment has been declined");
+        changeStatus();
+        status.setText(labTestWorkRequest.getStatus());
     }
 
     /** This method is called from within the constructor to
@@ -33,9 +121,9 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
         status = new javax.swing.JLabel();
         btnBack1 = new javax.swing.JButton();
         acceptOrder = new javax.swing.JButton();
-        assignDeliveryPerson = new javax.swing.JComboBox<>();
+        assignDoctorComboBox = new javax.swing.JComboBox<>();
         jButtonAddDeliveryMan = new javax.swing.JButton();
-        assignDeliveryPersonLabel = new javax.swing.JLabel();
+        assignDoctorLabel = new javax.swing.JLabel();
         declineOrder = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
@@ -102,6 +190,11 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
         btnBack1.setBackground(new java.awt.Color(255, 255, 204));
         btnBack1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         btnBack1.setText("Back");
+        btnBack1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -112,6 +205,11 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
         acceptOrder.setBackground(new java.awt.Color(255, 255, 204));
         acceptOrder.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         acceptOrder.setText("Accept Appointment");
+        acceptOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptOrderActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -120,8 +218,13 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(36, 25, 131, 0);
         add(acceptOrder, gridBagConstraints);
 
-        assignDeliveryPerson.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        assignDeliveryPerson.setForeground(new java.awt.Color(255, 153, 51));
+        assignDoctorComboBox.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        assignDoctorComboBox.setForeground(new java.awt.Color(255, 153, 51));
+        assignDoctorComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignDoctorActionPerformedComboBox(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
@@ -130,11 +233,16 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 98;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(41, 92, 0, 0);
-        add(assignDeliveryPerson, gridBagConstraints);
+        add(assignDoctorComboBox, gridBagConstraints);
 
         jButtonAddDeliveryMan.setBackground(new java.awt.Color(255, 255, 204));
         jButtonAddDeliveryMan.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         jButtonAddDeliveryMan.setText("Assign");
+        jButtonAddDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignDoctorActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 2;
@@ -144,20 +252,25 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(41, 12, 0, 0);
         add(jButtonAddDeliveryMan, gridBagConstraints);
 
-        assignDeliveryPersonLabel.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        assignDeliveryPersonLabel.setForeground(new java.awt.Color(255, 255, 255));
-        assignDeliveryPersonLabel.setText("Assign Doctor");
+        assignDoctorLabel.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        assignDoctorLabel.setForeground(new java.awt.Color(255, 255, 255));
+        assignDoctorLabel.setText("Assign Doctor");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(45, 16, 0, 0);
-        add(assignDeliveryPersonLabel, gridBagConstraints);
+        add(assignDoctorLabel, gridBagConstraints);
 
         declineOrder.setBackground(new java.awt.Color(255, 255, 204));
         declineOrder.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         declineOrder.setText("Decline Appointment");
+        declineOrder.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                declineOrderMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 6;
@@ -167,11 +280,63 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
         add(declineOrder, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
+        // TODO add your handling code here:
+        ManageAppointments viewOrderDetails = new ManageAppointments(userProcessContainer,ecosystem, userAccount);
+        userProcessContainer.add("ViewOrderDetails", viewOrderDetails);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnBack1ActionPerformed
+
+    private void acceptOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptOrderActionPerformed
+        // TODO add your handling code here:
+          if (labTestWorkRequest.getStatus().equals("Request to Hospital")) {
+            labTestWorkRequest.setStatus("Waiting for doctor to be assigned");
+            JOptionPane.showMessageDialog(null, " Appointment Scheduled. Waiting for doctor to be assigned");
+        }
+        else if(labTestWorkRequest.getStatus().equals("Waiting for doctor to be assigned")) {
+            labTestWorkRequest.setStatus("Doctor Assigned");
+            if(labTestWorkRequest.getDeliverMan() == null){
+                JOptionPane.showMessageDialog(null, " Doctor Assigned");
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Doctor will be assigned");
+            }
+        }
+
+        else {
+            acceptOrder.setVisible(false);
+        }
+        changeStatus();
+        status.setText(labTestWorkRequest.getStatus());
+
+    }//GEN-LAST:event_acceptOrderActionPerformed
+
+    private void declineOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_declineOrderMouseClicked
+        // TODO add your handling code here:
+        declineOrder();
+    }//GEN-LAST:event_declineOrderMouseClicked
+
+    private void assignDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignDoctorActionPerformed
+        // TODO add your handling code here:
+         if(index >= 0) {
+            Doctor doctor = doctorDirectory.getDoctorList().get(assignDoctorComboBox.getSelectedIndex());
+            labTestWorkRequest.setDoctor(doctor);
+            JOptionPane.showMessageDialog(null,doctor+ " Doctor assigned");
+            fillStatusUI();
+        }
+    }//GEN-LAST:event_assignDoctorActionPerformed
+
+    private void assignDoctorActionPerformedComboBox(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignDoctorActionPerformedComboBox
+        // TODO add your handling code here:
+        index = assignDoctorComboBox.getSelectedIndex();
+    }//GEN-LAST:event_assignDoctorActionPerformedComboBox
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceptOrder;
-    private javax.swing.JComboBox<String> assignDeliveryPerson;
-    private javax.swing.JLabel assignDeliveryPersonLabel;
+    private javax.swing.JComboBox<String> assignDoctorComboBox;
+    private javax.swing.JLabel assignDoctorLabel;
     private javax.swing.JButton btnBack1;
     private javax.swing.JButton declineOrder;
     private javax.swing.JButton jButtonAddDeliveryMan;
