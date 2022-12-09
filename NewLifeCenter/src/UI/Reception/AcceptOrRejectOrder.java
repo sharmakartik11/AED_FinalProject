@@ -24,21 +24,162 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel10 = new javax.swing.JLabel();
+        message = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        status = new javax.swing.JLabel();
+        btnBack1 = new javax.swing.JButton();
+        acceptOrder = new javax.swing.JButton();
+        assignDeliveryPerson = new javax.swing.JComboBox<>();
+        jButtonAddDeliveryMan = new javax.swing.JButton();
+        assignDeliveryPersonLabel = new javax.swing.JLabel();
+        declineOrder = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(0, 102, 102));
+        setLayout(new java.awt.GridBagLayout());
+
+        jLabel10.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Message");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 59, 0, 0);
+        add(jLabel10, gridBagConstraints);
+
+        message.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        message.setForeground(new java.awt.Color(255, 255, 255));
+        message.setText("<value>");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 23;
+        gridBagConstraints.ipadx = 216;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 93, 0, 0);
+        add(message, gridBagConstraints);
+
+        jLabel12.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("APPOINTMENT DETAILS");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 28;
+        gridBagConstraints.ipadx = 338;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 2, 0, 3);
+        add(jLabel12, gridBagConstraints);
+
+        jLabel14.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Status");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 80, 0, 0);
+        add(jLabel14, gridBagConstraints);
+
+        status.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        status.setForeground(new java.awt.Color(255, 255, 255));
+        status.setText("<value>");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.ipadx = 149;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 93, 0, 0);
+        add(status, gridBagConstraints);
+
+        btnBack1.setBackground(new java.awt.Color(255, 255, 204));
+        btnBack1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnBack1.setText("Back");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 12, 0, 0);
+        add(btnBack1, gridBagConstraints);
+
+        acceptOrder.setBackground(new java.awt.Color(255, 255, 204));
+        acceptOrder.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        acceptOrder.setText("Accept Appointment");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(36, 25, 131, 0);
+        add(acceptOrder, gridBagConstraints);
+
+        assignDeliveryPerson.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        assignDeliveryPerson.setForeground(new java.awt.Color(255, 153, 51));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 98;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(41, 92, 0, 0);
+        add(assignDeliveryPerson, gridBagConstraints);
+
+        jButtonAddDeliveryMan.setBackground(new java.awt.Color(255, 255, 204));
+        jButtonAddDeliveryMan.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jButtonAddDeliveryMan.setText("Assign");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 14;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(41, 12, 0, 0);
+        add(jButtonAddDeliveryMan, gridBagConstraints);
+
+        assignDeliveryPersonLabel.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        assignDeliveryPersonLabel.setForeground(new java.awt.Color(255, 255, 255));
+        assignDeliveryPersonLabel.setText("Assign Doctor");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(45, 16, 0, 0);
+        add(assignDeliveryPersonLabel, gridBagConstraints);
+
+        declineOrder.setBackground(new java.awt.Color(255, 255, 204));
+        declineOrder.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        declineOrder.setText("Decline Appointment");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(36, 10, 131, 0);
+        add(declineOrder, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton acceptOrder;
+    private javax.swing.JComboBox<String> assignDeliveryPerson;
+    private javax.swing.JLabel assignDeliveryPersonLabel;
+    private javax.swing.JButton btnBack1;
+    private javax.swing.JButton declineOrder;
+    private javax.swing.JButton jButtonAddDeliveryMan;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel message;
+    private javax.swing.JLabel status;
     // End of variables declaration//GEN-END:variables
 
 }
