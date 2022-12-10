@@ -4,6 +4,12 @@
  */
 package UI.Reception;
 
+import NewLife.Pharmacy.Pharmacy;
+import NewLife.UserAccount.UserAccount;
+import NewLifeCenter.NewLife;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author shivanidatar
@@ -13,8 +19,29 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
     /**
      * Creates new form ManageReceptionInformation
      */
-    public ManageReceptionInformation() {
+    JPanel userProcessContainer;
+    NewLife ecosystem;
+    UserAccount userAccount;
+    Pharmacy pharma;
+    public ManageReceptionInformation(JPanel userProcessContainer, NewLife ecosystem, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = ecosystem;
+        this.userAccount = userAccount;
+        pharma = (Pharmacy)userAccount;
+        initComponents();
+        display(pharma);
+        btnSave.setVisible(false);
+    }
+    
+    private void setVisibleEditable(boolean value) {
+        txtReceptionistName.setEditable(value);        
+        txtReceptionistName.setEnabled(value);       
+    }
+
+    private void display(Pharmacy pharma) {
+        setVisibleEditable(false);
+        txtReceptionistName.setText(pharma.getPharmacyName());        
     }
 
     /**
@@ -65,6 +92,11 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
         btnUpdate.setBackground(new java.awt.Color(255, 255, 204));
         btnUpdate.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
@@ -74,11 +106,6 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
 
         txtReceptionistName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         txtReceptionistName.setForeground(new java.awt.Color(255, 153, 51));
-        txtReceptionistName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtReceptionistNameActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
@@ -92,6 +119,11 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
         btnSave.setBackground(new java.awt.Color(255, 255, 204));
         btnSave.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
@@ -102,6 +134,11 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
         btnBack.setBackground(new java.awt.Color(255, 255, 204));
         btnBack.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -116,6 +153,27 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel3, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        ReceptionWorkArea adminWorkAreaJPanel = new ReceptionWorkArea(userProcessContainer,userAccount, ecosystem);
+        userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+         btnSave.setVisible(true);
+         setVisibleEditable(true);
+
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        pharma.setPharmacyName(txtReceptionistName.getText());
+        setVisibleEditable(false);
+    }//GEN-LAST:event_btnSaveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

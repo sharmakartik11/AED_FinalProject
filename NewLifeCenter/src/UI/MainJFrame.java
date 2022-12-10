@@ -5,13 +5,26 @@
 package UI;
 
 import NewLife.DB4OUtil.DB4OUtil;
+import NewLife.Patient.Patient;
+import NewLife.Pharmacy.Pharmacy;
+import NewLife.Porter.Porter;
+import NewLife.UserAccount.UserAccount;
 import NewLifeCenter.NewLife;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
  * @author shivaniguglani
  */
+
 public class MainJFrame extends javax.swing.JFrame {
 
     private JFrame openLoginJFrame;
@@ -19,8 +32,12 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    private NewLife system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     public MainJFrame() {
         initComponents();
+        system = dB4OUtil.retrieveSystem();
+        this.setSize(1680, 1050);
     }
 
     /**
@@ -164,18 +181,61 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // TODO add your handling code here:
-        
+         // Get user name
+        String userName = userNameJTextField.getText();
+        char[] passwordCharArray = passwordField.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        //Step1: Check in the system admin user account directory if you have the user
+
+        UserAccount userAccount=system.getUserAccountDirectory().authenticateUser(userName, password);
+
+        if(userAccount==null){
+            JOptionPane.showMessageDialog(null, "Invalid credentials");
+            return;
+        }
+        else {
+            if (userAccount instanceof Patient){
+                container.add("workArea", userAccount.getRole().createWorkArea(container, (Patient)userAccount, system));
+            }else if(userAccount instanceof Pharmacy){
+                container.add("workArea", userAccount.getRole().createWorkArea(container, (Pharmacy)userAccount, system));
+            }else if(userAccount instanceof Porter){
+                container.add("workArea", userAccount.getRole().createWorkArea(container, (Porter)userAccount, system));
+            }else{
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, system));
+            }
+            CardLayout layout = (CardLayout) container.getLayout();
+            layout.next(container);
+        }
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
         // TODO add your handling code here:
+        logoutJButton.setEnabled(false);
+        userNameJTextField.setEnabled(true);
+        passwordField.setEnabled(true);
+        loginJButton.setEnabled(true);
+
+        userNameJTextField.setText("");
+        passwordField.setText("");
+
+        container.removeAll();
+        JPanel blankJP = new JPanel();
+        blankJP.setBackground(new Color(006666));
+
+        container.add("blank", blankJP);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(system);
+
+        ImageIcon image = new ImageIcon("hospitalBackgroundColor.png");
+        JLabel label = new JLabel("", image, JLabel.CENTER);
+        label.setPreferredSize(new Dimension(blankJP.getWidth(),blankJP.getHeight()));
+        blankJP.add(label, BorderLayout.CENTER );
     }//GEN-LAST:event_logoutJButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-     private NewLife system;
-    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
