@@ -5,6 +5,7 @@
 package UI.SystemAdmin;
 
 import NewLifeCenter.NewLife;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -16,7 +17,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form SystemAdminWorkArea
      */
-     JPanel userProcessContainer;
+    JPanel userProcessContainer;
     NewLife ecosystem;
     public SystemAdminWorkArea(JPanel userProcessContainer,NewLife ecosystem) {
         initComponents();
@@ -48,6 +49,11 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         btnManageHospital.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         btnManageHospital.setText("Manage Hospital");
         btnManageHospital.setBorderPainted(false);
+        btnManageHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageHospitalActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -61,6 +67,11 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         btnManagePharmaceutical.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         btnManagePharmaceutical.setText("Manage Pharmaceutical");
         btnManagePharmaceutical.setBorderPainted(false);
+        btnManagePharmaceutical.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagePharmaceuticalActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -74,6 +85,11 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         btnManagePharmacy.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         btnManagePharmacy.setText("Manage Pharmacy");
         btnManagePharmacy.setBorderPainted(false);
+        btnManagePharmacy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagePharmacyActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -121,6 +137,30 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(28, 24, 0, 25);
         add(jLabel2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnManageHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospitalActionPerformed
+        // TODO add your handling code here:
+        ManageHospital manageHospitalJPanel =new ManageHospital(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageHospitalJPanel",manageHospitalJPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageHospitalActionPerformed
+
+    private void btnManagePharmacyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePharmacyActionPerformed
+        // TODO add your handling code here:
+        ManagePharmacy managePharmacyJPanel =new ManagePharmacy(userProcessContainer, ecosystem);
+        userProcessContainer.add("managePharmacyJPanel",managePharmacyJPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManagePharmacyActionPerformed
+
+    private void btnManagePharmaceuticalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePharmaceuticalActionPerformed
+        // TODO add your handling code here:
+        ManagePharmaceutical manageParmaceuticalJPanel =new ManagePharmaceutical(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageParmaceuticalJPanel",manageParmaceuticalJPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManagePharmaceuticalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
