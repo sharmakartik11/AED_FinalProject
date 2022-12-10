@@ -25,20 +25,106 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        lblPageHeader = new javax.swing.JLabel();
+        lblReceptionistName = new javax.swing.JLabel();
+        btnUpdate = new javax.swing.JButton();
+        txtReceptionistName = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(0, 102, 102));
+        setLayout(new java.awt.GridBagLayout());
+
+        lblPageHeader.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+        lblPageHeader.setForeground(new java.awt.Color(255, 255, 255));
+        lblPageHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPageHeader.setText("MANAGE RECEPTION INFORMATION");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.ipadx = 254;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 3, 0, 4);
+        add(lblPageHeader, gridBagConstraints);
+
+        lblReceptionistName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        lblReceptionistName.setForeground(new java.awt.Color(255, 255, 255));
+        lblReceptionistName.setText("Receptionist Name");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(44, 163, 0, 0);
+        add(lblReceptionistName, gridBagConstraints);
+
+        btnUpdate.setBackground(new java.awt.Color(255, 255, 204));
+        btnUpdate.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnUpdate.setText("Update");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(37, 209, 59, 0);
+        add(btnUpdate, gridBagConstraints);
+
+        txtReceptionistName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        txtReceptionistName.setForeground(new java.awt.Color(255, 153, 51));
+        txtReceptionistName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtReceptionistNameActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 193;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(41, 4, 0, 0);
+        add(txtReceptionistName, gridBagConstraints);
+
+        btnSave.setBackground(new java.awt.Color(255, 255, 204));
+        btnSave.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnSave.setText("Save");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(37, 32, 59, 0);
+        add(btnSave, gridBagConstraints);
+
+        btnBack.setBackground(new java.awt.Color(255, 255, 204));
+        btnBack.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnBack.setText("Back");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 13, 0, 0);
+        add(btnBack, gridBagConstraints);
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        add(jLabel3, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblPageHeader;
+    private javax.swing.JLabel lblReceptionistName;
+    private javax.swing.JTextField txtReceptionistName;
     // End of variables declaration//GEN-END:variables
 }
