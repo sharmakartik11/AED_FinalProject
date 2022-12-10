@@ -206,6 +206,10 @@ public class MainJFrame extends javax.swing.JFrame {
             CardLayout layout = (CardLayout) container.getLayout();
             layout.next(container);
         }
+        loginJButton.setEnabled(false);
+        logoutJButton.setEnabled(true);
+        userNameJTextField.setEnabled(false);
+        passwordField.setEnabled(false);
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
@@ -220,14 +224,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
         container.removeAll();
         JPanel blankJP = new JPanel();
-        blankJP.setBackground(new Color(006666));
+        blankJP.setBackground(new Color(00,66,66));
 
         container.add("blank", blankJP);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
         dB4OUtil.storeSystem(system);
 
-        ImageIcon image = new ImageIcon("hospitalBackgroundColor.png");
+        ImageIcon image = new ImageIcon("/Users/shivanidatar/aedProject/AED_FinalProject/NewLifeCenter/src/UI/hospitalBackgroundColor.jpg");
         JLabel label = new JLabel("", image, JLabel.CENTER);
         label.setPreferredSize(new Dimension(blankJP.getWidth(),blankJP.getHeight()));
         blankJP.add(label, BorderLayout.CENTER );

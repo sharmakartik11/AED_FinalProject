@@ -244,7 +244,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(18, 86, 0, 0);
         add(status, gridBagConstraints);
 
-        jLabel4.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Zoom Link");
