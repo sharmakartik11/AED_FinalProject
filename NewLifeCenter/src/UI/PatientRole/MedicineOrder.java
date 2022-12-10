@@ -42,20 +42,20 @@ public class MedicineOrder extends javax.swing.JPanel {
     private int row = 0;
     private int column = 0;
     private int quantity = 0;
-    private NewLife ecosystem;
+    private NewLife newLife;
     private PharmacyDirectory pharmacyDirectory;
     private List<ProductQuantity> itemQuantityList = new ArrayList<>();
     
     
-    public MedicineOrder(JPanel userProcessContainer, UserAccount account, NewLife ecosystem) {
+    public MedicineOrder(JPanel userProcessContainer, UserAccount account, NewLife newLife) {
         initComponents();
         
         initListners();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
-        this.ecosystem = ecosystem;
+        this.newLife = newLife;
         patient = (Patient) account;
-        pharmacyDirectory = ecosystem.getPharmacyDirectory();
+        pharmacyDirectory = newLife.getPharmacyDirectory();
         fillRstList(pharmacyDirectory.getPharmacyList());
         defaultTableModel = (DefaultTableModel) tblPharmaInventory.getModel();
         defaultCartTable  = (DefaultTableModel) tblCart.getModel();
@@ -168,7 +168,7 @@ public class MedicineOrder extends javax.swing.JPanel {
             }
             orderWorkRequest.setRequestDate(new Date());
             orderWorkRequest.setStatus("Request to Pharmacy");
-            ecosystem.getWorkQueue().addWorkRequest(orderWorkRequest);
+            newLife.getWorkQueue().addWorkRequest(orderWorkRequest);
             return true;
     }
 
@@ -398,7 +398,7 @@ public class MedicineOrder extends javax.swing.JPanel {
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
         if (creatingOrder()) {
             JOptionPane.showMessageDialog(null, "Order Placed");
-            MedcineOrderInfo medicineOrderInfoJPanel = new MedcineOrderInfo(userProcessContainer, ecosystem, patient);
+            MedcineOrderInfo medicineOrderInfoJPanel = new MedcineOrderInfo(userProcessContainer, newLife, patient);
             userProcessContainer.add("RequestLabTestJPanel", medicineOrderInfoJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
@@ -412,7 +412,7 @@ public class MedicineOrder extends javax.swing.JPanel {
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
 
-        PatientAreaPanel customerAreaJPanel = new PatientAreaPanel(userProcessContainer, userAccount, ecosystem);
+        PatientAreaPanel customerAreaJPanel = new PatientAreaPanel(userProcessContainer, userAccount, newLife);
         userProcessContainer.add("DeliveryManWorkAreaJPanel", customerAreaJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
