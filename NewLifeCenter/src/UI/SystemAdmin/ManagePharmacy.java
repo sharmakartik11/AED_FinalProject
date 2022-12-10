@@ -4,9 +4,16 @@
  */
 package UI.SystemAdmin;
 
+import NewLife.Pharmacy.Pharmacy;
+import NewLife.Pharmacy.PharmacyDirectory;
+import NewLife.Role.PharmaAdminRole;
 import NewLife.UserAccount.UserAccountDirectory;
 import NewLifeCenter.NewLife;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,6 +32,22 @@ public class ManagePharmacy extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
     }
+    
+    private void fillTable() {
+        PharmacyDirectory pharmacyDirectory = ecosystem.getPharmacyDirectory();
+        DefaultTableModel model = (DefaultTableModel) tblRestaurantAdmin.getModel();
+        model.setRowCount(0);
+        for (Pharmacy pharmacy : pharmacyDirectory.getPharmacyList()) {
+            Object[] row = new Object[5];
+            row[0] = pharmacy;
+            row[1] = pharmacy.getUsername();
+            row[2] = pharmacy.getPassword();
+            row[3] = pharmacy.getAddress();
+            row[4] = pharmacy.getContact();
+            model.addRow(row);
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -142,21 +165,11 @@ public class ManagePharmacy extends javax.swing.JPanel {
         passwordTextfield.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         passwordTextfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         passwordTextfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        passwordTextfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordTextfieldActionPerformed(evt);
-            }
-        });
 
         userNameTextfield.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         userNameTextfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         userNameTextfield.setToolTipText("");
         userNameTextfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        userNameTextfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameTextfieldActionPerformed(evt);
-            }
-        });
 
         backjButton1.setBackground(new java.awt.Color(255, 255, 204));
         backjButton1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -269,6 +282,90 @@ public class ManagePharmacy extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backjButton1ActionPerformed
+        // TODO add your handling code here:
+         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkArea sysAdminwjp = (SystemAdminWorkArea) component;
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backjButton1ActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+          if (userNameTextfield.getText().isEmpty() || passwordTextfield.getText().isEmpty() || restaurantNameTextfield.getText().isEmpty() || contact.getText().isEmpty() || address.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Enter all fields");
+            return;
+        }
+        if(contact.getText().length() != 10){
+            JOptionPane.showMessageDialog(null, "Enter a valid phone number");
+            return;
+        }
+        if (ecosystem.getUserAccountDirectory().checkUsernameUnique(userNameTextfield.getText())) {
+            Pharmacy pharmacy = new Pharmacy();
+            pharmacy.setPharmacyName(restaurantNameTextfield.getText());
+            pharmacy.setUsername(userNameTextfield.getText());
+            pharmacy.setPassword(passwordTextfield.getText());
+            pharmacy.setAddress(address.getText());
+            pharmacy.setContact(contact.getText());
+            pharmacy.setRole(new PharmaAdminRole());
+            ecosystem.getUserAccountDirectory().addUserAccount(pharmacy);
+            ecosystem.getPharmacyDirectory().addPharmacy(pharmacy);
+            fillTable();
+            userNameTextfield.setText("");
+            passwordTextfield.setText("");
+            restaurantNameTextfield.setText("");
+            address.setText("");
+            contact.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Username " + userNameTextfield.getText() + " exists");
+        }
+
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblRestaurantAdmin.getSelectedRow();
+        if (selectedRow >= 0) {
+            Pharmacy pharmacy = (Pharmacy) tblRestaurantAdmin.getValueAt(selectedRow, 0);
+            pharmacy.setUsername(userNameTextfield.getText());
+            pharmacy.setPassword(passwordTextfield.getText());
+            pharmacy.setAddress(address.getText());
+            pharmacy.setContact(contact.getText());
+            pharmacy.setPharmacyName(restaurantNameTextfield.getText());
+            fillTable();
+            userNameTextfield.setText("");
+            passwordTextfield.setText("");
+            restaurantNameTextfield.setText("");
+            address.setText("");
+            contact.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Select a row");
+        }
+    }//GEN-LAST:event_btnModifyActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblRestaurantAdmin.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            Pharmacy pharmacy = (Pharmacy) tblRestaurantAdmin.getValueAt(selectedRow, 0);
+            PharmacyDirectory pharmacyDirectory = ecosystem.getPharmacyDirectory();
+            pharmacyDirectory.deletePharmacy(pharmacy);
+            JOptionPane.showMessageDialog(null, "Pharmacy admin "  + userNameTextfield.getText() + " deleted");
+            fillTable();
+            userNameTextfield.setText("");
+            passwordTextfield.setText("");
+            restaurantNameTextfield.setText("");
+            address.setText("");
+            contact.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Select a row.");
+        }
+
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
