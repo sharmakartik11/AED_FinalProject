@@ -133,6 +133,7 @@ public class ManageHospital extends javax.swing.JPanel {
         passwordTextfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         passwordTextfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        tblDeliveryMan.setBackground(new java.awt.Color(204, 255, 204));
         tblDeliveryMan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         tblDeliveryMan.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         tblDeliveryMan.setModel(new javax.swing.table.DefaultTableModel(
