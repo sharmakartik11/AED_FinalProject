@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package NewLife.WorkList;
-import NewLife.WorkList.WorkRequest;
+import NewLife.Porter.Porter;
 import NewLife.UserAccount.UserAccount;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author shivanidatar
  */
-public class WorkList {
+public class WorkList{
     private List<WorkRequest> workRequestList;
 
     public WorkList() {

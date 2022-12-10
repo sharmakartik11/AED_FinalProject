@@ -16,13 +16,14 @@ import NewLife.Pharmaceutical.Pharmaceutical;
 import NewLife.Pharmacy.Pharmacy;
 import NewLife.Porter.Porter;
 import NewLife.Reception.Reception;
+import NewLife.UserAccount.UserAccount;
 import java.util.Date;
 
 /**
  *
  * @author shivanidatar
  */
-public abstract class WorkRequest {
+public abstract class WorkRequest extends UserAccount{
     private String message;
     private String zoomLink;
     private String testType;

@@ -4,11 +4,13 @@
  */
 package NewLife.LabAssistant;
 
+import NewLife.UserAccount.UserAccount;
+
 /**
  *
  * @author kartik
  */
-public class LabAssistant {
+public class LabAssistant extends UserAccount{
     private String labAssistantName;
     private String type;
 

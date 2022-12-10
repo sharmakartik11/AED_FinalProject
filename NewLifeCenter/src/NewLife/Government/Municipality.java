@@ -4,11 +4,13 @@
  */
 package NewLife.Government;
 
+import NewLife.UserAccount.UserAccount;
+
 /**
  *
  * @author shivanidatar
  */
-public class Municipality {
+public class Municipality extends UserAccount{
     private String governmentName;
     private String orderId;
 
