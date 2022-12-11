@@ -19,6 +19,7 @@ public class Pharmacy extends UserAccount{
     private String pharmacyName;
     private PharmacyInventory menu;
     private String address;
+    private String contact;
 
     public String getOrderId() {
         return orderId;
@@ -67,6 +68,16 @@ public class Pharmacy extends UserAccount{
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+    
+    
     
     
 }

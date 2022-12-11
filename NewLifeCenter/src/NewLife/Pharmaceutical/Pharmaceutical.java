@@ -19,6 +19,8 @@ public class Pharmaceutical extends UserAccount{
     private Porter deliveryMan;
     private String pharmaceuticalName;
     private Inventory inventory;
+    private String address;
+    private String contact;
 
     public String getOrderId() {
         return orderId;
@@ -59,6 +61,24 @@ public class Pharmaceutical extends UserAccount{
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+    
+    
     
     @Override
     public String toString() {
