@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author shivaniguglani
+ * @author kartik
  */
 public class AcceptOrRejectOrder extends javax.swing.JPanel {
 
@@ -28,21 +28,21 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
     UserAccount userAccount;
-    NewLife newLife;
+    NewLife newlife;
     LabWorkRequest labTestWorkRequest;
     double total = 0.0;
     private DefaultTableModel defaultTableModel;
     private PorterDirectory deliveryManDirectory;
     private List<PharmacyInventory> itemQuantityList = new ArrayList<>();
     private int index = -1;
-    public AcceptOrRejectOrder(JPanel userProcessContainer, NewLife newLife, UserAccount userAccount, LabWorkRequest labTestWorkRequest) {
+    public AcceptOrRejectOrder(JPanel userProcessContainer, NewLife newlife, UserAccount userAccount, LabWorkRequest labTestWorkRequest) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.newLife = newLife;
+        this.newlife = newlife;
         this.userAccount = userAccount;
         this.labTestWorkRequest = labTestWorkRequest;
         defaultTableModel = (DefaultTableModel) tblOrderDetails.getModel();
-        deliveryManDirectory = newLife.getDeliveryManDirectory();   
+        deliveryManDirectory = newlife.getDeliveryManDirectory();   
         change();
         display();
     }
@@ -116,7 +116,6 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
         declineOrder = new javax.swing.JButton();
         lblBackButton = new javax.swing.JLabel();
         btnBack1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -149,40 +148,36 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
         });
         cartScrollPane1.setViewportView(tblOrderDetails);
 
-        lblPharmaName.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        lblPharmaName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         lblPharmaName.setForeground(new java.awt.Color(255, 255, 255));
         lblPharmaName.setText("Pharmacy Name");
 
-        pharmaName.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
-        pharmaName.setForeground(new java.awt.Color(255, 255, 255));
+        pharmaName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         pharmaName.setText("<value>");
 
-        status.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
-        status.setForeground(new java.awt.Color(255, 255, 255));
+        status.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         status.setText("<value>");
 
-        lblStatus.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        lblStatus.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setText("Status");
 
-        lblOrderTotal.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        lblOrderTotal.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         lblOrderTotal.setForeground(new java.awt.Color(255, 255, 255));
         lblOrderTotal.setText("Total");
 
-        totalPrice.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
-        totalPrice.setForeground(new java.awt.Color(255, 255, 255));
+        totalPrice.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         totalPrice.setText("<value>");
 
-        message.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
-        message.setForeground(new java.awt.Color(255, 255, 255));
+        message.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         message.setText("<value>");
 
-        lblMessage.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        lblMessage.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         lblMessage.setForeground(new java.awt.Color(255, 255, 255));
         lblMessage.setText("Message");
 
         acceptOrder.setBackground(new java.awt.Color(255, 255, 204));
-        acceptOrder.setFont(new java.awt.Font("Helvetica Neue", 3, 14)); // NOI18N
+        acceptOrder.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         acceptOrder.setText("Accept Order");
         acceptOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,7 +186,7 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
         });
 
         declineOrder.setBackground(new java.awt.Color(255, 255, 204));
-        declineOrder.setFont(new java.awt.Font("Helvetica Neue", 3, 14)); // NOI18N
+        declineOrder.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         declineOrder.setText("Decline Order");
         declineOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -204,109 +199,86 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
             }
         });
 
-        lblBackButton.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        lblBackButton.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         lblBackButton.setForeground(new java.awt.Color(255, 255, 255));
         lblBackButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBackButton.setText("ORDER DETAILS");
 
         btnBack1.setBackground(new java.awt.Color(255, 255, 204));
-        btnBack1.setFont(new java.awt.Font("Helvetica Neue", 3, 14)); // NOI18N
-        btnBack1.setText("Back");
+        btnBack1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnBack1.setText("<<");
         btnBack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/PharmaAdminRole/package.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(lblOrderTotal)
-                                .addGap(73, 73, 73)
-                                .addComponent(totalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(80, 80, 80)
-                                    .addComponent(lblStatus)
-                                    .addGap(73, 73, 73)
-                                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblPharmaName)
-                                    .addGap(61, 61, 61)
-                                    .addComponent(pharmaName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addComponent(lblMessage)
-                                .addGap(59, 59, 59)
-                                .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(28, 28, 28))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(cartScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(23, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(acceptOrder)
-                        .addGap(42, 42, 42)
-                        .addComponent(declineOrder)
-                        .addGap(144, 144, 144))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(183, 183, 183))))
+                    .addComponent(lblBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(cartScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(btnBack1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(lblPharmaName)
+                .addGap(61, 61, 61)
+                .addComponent(pharmaName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(lblOrderTotal)
+                        .addGap(73, 73, 73)
+                        .addComponent(totalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(lblMessage)
+                        .addGap(59, 59, 59)
+                        .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblStatus)
+                        .addGap(73, 73, 73)
+                        .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(declineOrder)
+                    .addComponent(acceptOrder)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack1)
-                .addGap(58, 58, 58)
-                .addComponent(lblBackButton)
-                .addGap(39, 39, 39)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cartScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblPharmaName)
-                            .addComponent(pharmaName)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblStatus)
-                                    .addComponent(status))
-                                .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblOrderTotal)
-                                    .addComponent(totalPrice))
-                                .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMessage)
-                                    .addComponent(message))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(declineOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(acceptOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(167, 167, 167))
+                    .addComponent(lblBackButton)
+                    .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(80, 80, 80)
+                .addComponent(cartScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPharmaName)
+                    .addComponent(pharmaName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblStatus)
+                        .addComponent(status))
+                    .addComponent(acceptOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblOrderTotal)
+                    .addComponent(totalPrice)
+                    .addComponent(declineOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMessage)
+                    .addComponent(message))
+                .addGap(17, 17, 17))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -338,7 +310,7 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
     }//GEN-LAST:event_declineOrderActionPerformed
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-        ViewOrderInformation viewOrderDetails = new ViewOrderInformation(userProcessContainer,newLife, userAccount);
+        ViewOrderInformation viewOrderDetails = new ViewOrderInformation(userProcessContainer,newlife, userAccount);
         userProcessContainer.add("ViewOrderDetails", viewOrderDetails);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -350,7 +322,6 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
     private javax.swing.JButton btnBack1;
     private javax.swing.JScrollPane cartScrollPane1;
     private javax.swing.JButton declineOrder;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblBackButton;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblOrderTotal;

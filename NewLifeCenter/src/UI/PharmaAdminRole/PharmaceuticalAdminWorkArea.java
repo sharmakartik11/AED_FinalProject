@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author shivaniguglani
+ * @author kartik
  */
 public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
 
@@ -20,43 +20,43 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
      */
     
     JPanel userProcessContainer;
-    NewLife newLife;
+    NewLife newlife;
     UserAccount userAccount;
-    public PharmaceuticalAdminWorkArea(JPanel userProcessContainer, UserAccount userAccount, NewLife newLife) {
+    public PharmaceuticalAdminWorkArea(JPanel userProcessContainer, UserAccount userAccount, NewLife newlife) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
-        this.newLife=newLife;
+        this.newlife=newlife;
         this.userAccount = userAccount; 
     }
     private void manageInventory() {
-        CreateMenuItem createMenuItemJPanel = new CreateMenuItem(userProcessContainer,userAccount,newLife);
+        CreateMenuItem createMenuItemJPanel = new CreateMenuItem(userProcessContainer,userAccount,newlife);
         userProcessContainer.add("UpdateRestaurantInfoJPanel",createMenuItemJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }
 
     private void manageCDCApproval() {
-        MedicineApprovalForm medicineApprovalJPanel = new MedicineApprovalForm(userProcessContainer,userAccount,newLife);
+        MedicineApprovalForm medicineApprovalJPanel = new MedicineApprovalForm(userProcessContainer,userAccount,newlife);
         userProcessContainer.add("MedicineApprovalJPanel",medicineApprovalJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }
     private void manageOrders() {
-        ViewOrderInformation viewOrderDetails = new ViewOrderInformation(userProcessContainer,newLife,userAccount);
+        ViewOrderInformation viewOrderDetails = new ViewOrderInformation(userProcessContainer,newlife,userAccount);
         userProcessContainer.add("ViewOrderDetails",viewOrderDetails);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }
     
     private void manageMenu() {
-        CreateMenuItem createMenuItemJPanel = new CreateMenuItem(userProcessContainer,userAccount,newLife);
+        CreateMenuItem createMenuItemJPanel = new CreateMenuItem(userProcessContainer,userAccount,newlife);
         userProcessContainer.add("CreateMenuItemJPanel",createMenuItemJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }
     
     private void manageInfo() {
-        UpdatePharmaceuticalInformation updateRestaurantInfoJPanel = new UpdatePharmaceuticalInformation(userProcessContainer,newLife, userAccount);
+        UpdatePharmaceuticalInformation updateRestaurantInfoJPanel = new UpdatePharmaceuticalInformation(userProcessContainer,newlife, userAccount);
         userProcessContainer.add("UpdateRestaurantInfoJPanel",updateRestaurantInfoJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -70,7 +70,6 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         manageOrganizationJButton = new javax.swing.JButton();
         manageOrganizationJButton1 = new javax.swing.JButton();
@@ -79,7 +78,6 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 102));
-        setLayout(new java.awt.GridBagLayout());
 
         manageOrganizationJButton.setBackground(new java.awt.Color(255, 255, 204));
         manageOrganizationJButton.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -89,15 +87,6 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipadx = 104;
-        gridBagConstraints.ipady = -7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(28, 260, 0, 0);
-        add(manageOrganizationJButton, gridBagConstraints);
 
         manageOrganizationJButton1.setBackground(new java.awt.Color(255, 255, 204));
         manageOrganizationJButton1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -107,14 +96,6 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
                 manageOrganizationJButton1ActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.ipadx = 84;
-        gridBagConstraints.ipady = -5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 260, 0, 0);
-        add(manageOrganizationJButton1, gridBagConstraints);
 
         userJButton.setBackground(new java.awt.Color(255, 255, 204));
         userJButton.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -124,13 +105,6 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
                 userJButtonActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipady = -12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 260, 0, 0);
-        add(userJButton, gridBagConstraints);
 
         userJButton1.setBackground(new java.awt.Color(255, 255, 204));
         userJButton1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -142,20 +116,44 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
                 userJButton1ActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.ipadx = 34;
-        gridBagConstraints.ipady = -8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 260, 26, 0);
-        add(userJButton1, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("WELCOME PHARMACEUTICAL ADMIN !");
-        add(jLabel1, new java.awt.GridBagConstraints());
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(207, 207, 207)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(userJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(userJButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(manageOrganizationJButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(manageOrganizationJButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(userJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(userJButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed

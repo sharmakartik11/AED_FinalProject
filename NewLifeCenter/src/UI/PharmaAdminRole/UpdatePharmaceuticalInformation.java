@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author shivaniguglani
+ * @author kartik
  */
 public class UpdatePharmaceuticalInformation extends javax.swing.JPanel {
 
@@ -21,13 +21,13 @@ public class UpdatePharmaceuticalInformation extends javax.swing.JPanel {
      */
     
     JPanel userProcessContainer;
-    NewLife newLife;
+    NewLife newlife;
     UserAccount userAccount;
     Pharmaceutical pharmaceutical;
-    public UpdatePharmaceuticalInformation(JPanel userProcessContainer, NewLife newLife, UserAccount userAccount) {
+    public UpdatePharmaceuticalInformation(JPanel userProcessContainer, NewLife newlife, UserAccount userAccount) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.newLife = newLife;
+        this.newlife = newlife;
         this.userAccount = userAccount;
         pharmaceutical = (Pharmaceutical)userAccount;
         initComponents();
@@ -70,7 +70,6 @@ public class UpdatePharmaceuticalInformation extends javax.swing.JPanel {
         updateButton = new javax.swing.JButton();
         confirmButton = new javax.swing.JButton();
         btnBack2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -78,7 +77,6 @@ public class UpdatePharmaceuticalInformation extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Pharmaceutical Name");
 
-        restaurantName.setBackground(new java.awt.Color(204, 255, 204));
         restaurantName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         restaurantName.setForeground(new java.awt.Color(255, 153, 51));
         restaurantName.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +85,7 @@ public class UpdatePharmaceuticalInformation extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MANAGE PHARMACEUTICAL INFORMATION");
@@ -96,7 +94,6 @@ public class UpdatePharmaceuticalInformation extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Pharmaceutical Address");
 
-        address.setBackground(new java.awt.Color(204, 255, 204));
         address.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         address.setForeground(new java.awt.Color(255, 153, 51));
         address.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +102,6 @@ public class UpdatePharmaceuticalInformation extends javax.swing.JPanel {
             }
         });
 
-        contact.setBackground(new java.awt.Color(204, 255, 204));
         contact.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         contact.setForeground(new java.awt.Color(255, 153, 51));
         contact.addActionListener(new java.awt.event.ActionListener() {
@@ -138,70 +134,59 @@ public class UpdatePharmaceuticalInformation extends javax.swing.JPanel {
 
         btnBack2.setBackground(new java.awt.Color(255, 255, 204));
         btnBack2.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        btnBack2.setText("Back");
+        btnBack2.setText("<<");
         btnBack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack2ActionPerformed(evt);
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/PharmaAdminRole/ameds.jpeg"))); // NOI18N
-        jLabel3.setText("jLabel3");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(18, 18, 18)
-                            .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addComponent(jLabel5)
-                                    .addGap(21, 21, 21))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(updateButton)
-                                    .addGap(60, 60, 60)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(confirmButton)
-                                .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(25, 25, 25)
-                        .addComponent(restaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(210, 210, 210))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack2))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 936, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(177, 177, 177)
+                                .addComponent(jLabel2)
+                                .addGap(25, 25, 25)
+                                .addComponent(restaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(161, 161, 161)
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(163, 163, 163)
+                                .addComponent(jLabel5)
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(updateButton)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(confirmButton)
+                                        .addGap(12, 12, 12))
+                                    .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(btnBack2)))
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(btnBack2)
-                .addGap(63, 63, 63)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBack2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
+                        .addComponent(jLabel1)
+                        .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
@@ -219,11 +204,12 @@ public class UpdatePharmaceuticalInformation extends javax.swing.JPanel {
                                 .addGap(3, 3, 3)
                                 .addComponent(jLabel5))
                             .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
+                        .addGap(101, 101, 101))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(214, Short.MAX_VALUE))
+                            .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -254,7 +240,7 @@ public class UpdatePharmaceuticalInformation extends javax.swing.JPanel {
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
-        PharmaceuticalAdminWorkArea adminWorkAreaJPanel = new PharmaceuticalAdminWorkArea(userProcessContainer,userAccount, newLife);
+        PharmaceuticalAdminWorkArea adminWorkAreaJPanel = new PharmaceuticalAdminWorkArea(userProcessContainer,userAccount, newlife);
         userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -268,7 +254,6 @@ public class UpdatePharmaceuticalInformation extends javax.swing.JPanel {
     private javax.swing.JTextField contact;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField restaurantName;

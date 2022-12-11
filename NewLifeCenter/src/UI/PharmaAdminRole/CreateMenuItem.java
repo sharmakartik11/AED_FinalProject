@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author shivaniguglani
+ * @author kartik
  */
 public class CreateMenuItem extends javax.swing.JPanel {
 
@@ -27,14 +27,14 @@ public class CreateMenuItem extends javax.swing.JPanel {
      */
     
     JPanel userProcessContainer;
-    NewLife newLife;
+    NewLife newlife;
     UserAccount userAccount;
     Pharmaceutical pharmaceutical;
-    public CreateMenuItem(JPanel userProcessContainer, UserAccount userAccount, NewLife newLife) {
+    public CreateMenuItem(JPanel userProcessContainer, UserAccount userAccount, NewLife newlife) {
         initComponents();
         initListners();
         this.userProcessContainer = userProcessContainer;
-        this.newLife = newLife;
+        this.newlife = newlife;
         this.userAccount = userAccount;
         pharmaceutical = (Pharmaceutical) userAccount;
         populateTable();
@@ -93,13 +93,13 @@ public class CreateMenuItem extends javax.swing.JPanel {
         btnUpdateItem = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnBack2 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblMenu.setBackground(new java.awt.Color(204, 255, 204));
         tblMenu.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        tblMenu.setForeground(new java.awt.Color(204, 255, 204));
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -126,27 +126,25 @@ public class CreateMenuItem extends javax.swing.JPanel {
         tblMenu.setSelectionBackground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(tblMenu);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 430, 151));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 820, 151));
 
-        itemName.setBackground(new java.awt.Color(204, 255, 204));
         itemName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         itemName.setSelectionColor(new java.awt.Color(0, 0, 0));
-        add(itemName, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 203, -1));
+        add(itemName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 203, -1));
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 3, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Item Price");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
 
-        itemPrice.setBackground(new java.awt.Color(204, 255, 204));
         itemPrice.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         itemPrice.setSelectionColor(new java.awt.Color(0, 0, 0));
-        add(itemPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, 203, -1));
+        add(itemPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 203, -1));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 3, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Item Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, -1));
 
         btnAddItem.setBackground(new java.awt.Color(255, 255, 204));
         btnAddItem.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -156,7 +154,7 @@ public class CreateMenuItem extends javax.swing.JPanel {
                 btnAddItemActionPerformed(evt);
             }
         });
-        add(btnAddItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 110, 30));
+        add(btnAddItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 195, 40));
 
         btnUpdateItem.setBackground(new java.awt.Color(255, 255, 204));
         btnUpdateItem.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -166,27 +164,23 @@ public class CreateMenuItem extends javax.swing.JPanel {
                 btnUpdateItemActionPerformed(evt);
             }
         });
-        add(btnUpdateItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 500, 110, 30));
+        add(btnUpdateItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 191, 40));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MANAGE INVENTORY");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 410, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 74, 753, -1));
 
         btnBack2.setBackground(new java.awt.Color(255, 255, 204));
-        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 3, 14)); // NOI18N
-        btnBack2.setText("Back");
+        btnBack2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnBack2.setText("<<");
         btnBack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack2ActionPerformed(evt);
             }
         });
-        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 30));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/PharmaAdminRole/ainventory.gif"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 270, -1));
+        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 120, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemActionPerformed
@@ -202,9 +196,8 @@ public class CreateMenuItem extends javax.swing.JPanel {
                 }
             }
         }
-        double price = 0.0;
         try {
-            price = Double.valueOf(itemPrice.getText());
+            Double.valueOf(itemPrice.getText());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Enter a valid number");
             return;
@@ -244,7 +237,7 @@ public class CreateMenuItem extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUpdateItemActionPerformed
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
-        PharmaceuticalAdminWorkArea adminWorkAreaJPanel = new PharmaceuticalAdminWorkArea(userProcessContainer,userAccount, newLife);
+        PharmaceuticalAdminWorkArea adminWorkAreaJPanel = new PharmaceuticalAdminWorkArea(userProcessContainer,userAccount, newlife);
         userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -260,7 +253,6 @@ public class CreateMenuItem extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblMenu;
     // End of variables declaration//GEN-END:variables

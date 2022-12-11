@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author shivaniguglani
+ * @author kartik
  */
 public class MedicineApprovalForm extends javax.swing.JPanel {
 
@@ -29,18 +29,18 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
      */
     
     JPanel userProcessContainer;
-    NewLife newLife;
+    NewLife newlife;
     UserAccount userAccount;
     Pharmaceutical pharmaceutical;
     MunicipalityDirectory governmentDirectory;
     private List<MedicalInformation> itemQuantityList = new ArrayList<>();
     private int index = -1;
-    public MedicineApprovalForm(JPanel userProcessContainer, UserAccount userAccount, NewLife newLife) {
+    public MedicineApprovalForm(JPanel userProcessContainer, UserAccount userAccount, NewLife newlife) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.newLife = newLife;
+        this.newlife = newlife;
         this.userAccount = userAccount;
-        governmentDirectory = newLife.getGovernmentDirectory();
+        governmentDirectory = newlife.getGovernmentDirectory();
         pharmaceutical = (Pharmaceutical) userAccount;
         fillRstList(governmentDirectory.getGovernmentList());
         
@@ -83,7 +83,7 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
             }
             orderWorkRequest.setRequestDate(new Date());
             orderWorkRequest.setStatus("Request to CDC");
-            newLife.getWorkQueue().addWorkRequest(orderWorkRequest);
+            newlife.getWorkQueue().addWorkRequest(orderWorkRequest);
             return true;
     }
 
@@ -128,16 +128,15 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(23, 93, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(23, 155, 0, 0);
         add(jLabel2, gridBagConstraints);
 
-        dosageField.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        dosageField.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridwidth = 12;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 227;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -150,27 +149,27 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 19, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(21, 81, 0, 0);
         add(jLabel3, gridBagConstraints);
 
-        nameField.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        nameField.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridwidth = 12;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 227;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 39, 0, 0);
         add(nameField, gridBagConstraints);
 
-        contraField.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        contraField.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridwidth = 11;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 227;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -185,7 +184,7 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
         gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 77, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(21, 139, 0, 0);
         add(jLabel7, gridBagConstraints);
 
         jLabel8.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -194,16 +193,16 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 25, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(21, 87, 0, 0);
         add(jLabel8, gridBagConstraints);
 
-        precField.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        precField.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridwidth = 11;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 227;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -216,15 +215,16 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(23, 71, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(23, 133, 0, 0);
         add(jLabel9, gridBagConstraints);
 
-        adverseReactionField.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        adverseReactionField.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridwidth = 11;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 227;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -237,16 +237,16 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 14;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 80, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(21, 142, 0, 0);
         add(jLabel10, gridBagConstraints);
 
-        drugField.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        drugField.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 14;
-        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridwidth = 12;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 227;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -259,16 +259,16 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 39, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(21, 101, 0, 0);
         add(jLabel11, gridBagConstraints);
 
-        clinicalField.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        clinicalField.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridwidth = 12;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 227;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -281,16 +281,16 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 18;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 26, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(21, 88, 0, 0);
         add(jLabel12, gridBagConstraints);
 
-        toxicologyField.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        toxicologyField.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 18;
-        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridwidth = 12;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 227;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -303,44 +303,44 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipady = -1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(31, 59, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(31, 121, 0, 0);
         add(enterpriseLabel1, gridBagConstraints);
 
-        rstCombo.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        rstCombo.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         rstCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rstComboActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.gridwidth = 10;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 129;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(27, 37, 0, 0);
         add(rstCombo, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MEDICINE INFORMATION");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 18;
+        gridBagConstraints.gridwidth = 21;
         gridBagConstraints.ipadx = 263;
         gridBagConstraints.ipady = -7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 39, 0, 39);
+        gridBagConstraints.insets = new java.awt.Insets(27, 29, 0, 135);
         add(jLabel1, gridBagConstraints);
 
         sendToCDCbtn.setBackground(new java.awt.Color(255, 255, 204));
-        sendToCDCbtn.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        sendToCDCbtn.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         sendToCDCbtn.setText("Send to CDC");
         sendToCDCbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -350,20 +350,26 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 20;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.ipady = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(33, 171, 56, 0);
+        gridBagConstraints.insets = new java.awt.Insets(43, 288, 75, 0);
         add(sendToCDCbtn, gridBagConstraints);
 
         btnBack2.setBackground(new java.awt.Color(255, 255, 204));
-        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
-        btnBack2.setText("Back");
+        btnBack2.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnBack2.setText("<<");
         btnBack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack2ActionPerformed(evt);
             }
         });
-        add(btnBack2, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(33, 34, 0, 0);
+        add(btnBack2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void rstComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rstComboActionPerformed
@@ -396,7 +402,7 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
     }//GEN-LAST:event_sendToCDCbtnActionPerformed
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
-        PharmaceuticalAdminWorkArea adminWorkAreaJPanel = new PharmaceuticalAdminWorkArea(userProcessContainer,userAccount, newLife);
+        PharmaceuticalAdminWorkArea adminWorkAreaJPanel = new PharmaceuticalAdminWorkArea(userProcessContainer,userAccount, newlife);
         userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

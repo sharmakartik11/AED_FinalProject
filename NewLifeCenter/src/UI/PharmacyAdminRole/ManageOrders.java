@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package UI.PharmaAdminRole;
+package UI.PharmacyAdminRole;
 
 import NewLifeCenter.NewLife;
 import NewLife.UserAccount.UserAccount;
@@ -20,10 +20,10 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author kartik
  */
-public class ViewOrderInformation extends javax.swing.JPanel {
+public class ManageOrders extends javax.swing.JPanel {
 
     /**
-     * Creates new form ViewOrderInformation
+     * Creates new form ManageOrders
      */
     
     JPanel userProcessContainer;
@@ -32,29 +32,26 @@ public class ViewOrderInformation extends javax.swing.JPanel {
     private List<WorkRequest> workRequestList;
     UserAccount account;
     
-    public ViewOrderInformation(JPanel userProcessContainer,NewLife newlife, UserAccount account) {
+    public ManageOrders(JPanel userProcessContainer,NewLife newlife, UserAccount account) {
         initComponents();
-        
         creatingListenerToManageOrder();
         this.userProcessContainer=userProcessContainer;
         this.newlife=newlife;
         this.account = account;
         fillRstReqTable();
     }
-    
     private void fillRstReqTable(){
         DefaultTableModel model = (DefaultTableModel) tblRestaurantWorkRequest.getModel();
         model.setRowCount(0);
-        workRequestList = newlife.getWorkQueue().getWorkRequestListPharmaceutical(account);
+        workRequestList = newlife.getWorkQueue().getWorkRequestListRestaurant(account);
         for (WorkRequest request : workRequestList) {
             Object[] row = new Object[tblRestaurantWorkRequest.getColumnCount()];
             row[0] = request;
-            row[1] = request.getPharmacy();
+            row[1] = request.getPatient();
             row[2] = request.getStatus();
             model.addRow(row);
         }
         }
-    
     private void creatingListenerToManageOrder() {
         tblRestaurantWorkRequest.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
@@ -64,7 +61,7 @@ public class ViewOrderInformation extends javax.swing.JPanel {
                     if (request instanceof LabWorkRequest) {
                         LabWorkRequest orderWorkRequest = (LabWorkRequest) tblRestaurantWorkRequest.getValueAt(selectedRow, 0);
                         if (orderWorkRequest != null) {
-                           AcceptOrRejectOrder acceptOrderOrNotJPanel = new AcceptOrRejectOrder(userProcessContainer,newlife,account,orderWorkRequest);
+                           OrderDecision acceptOrderOrNotJPanel = new OrderDecision(userProcessContainer,newlife,account,orderWorkRequest);
                            userProcessContainer.add("AcceptOrderOrNotJPanel", acceptOrderOrNotJPanel);
                            CardLayout layout = (CardLayout)userProcessContainer.getLayout();
                            layout.next(userProcessContainer);
@@ -98,7 +95,6 @@ public class ViewOrderInformation extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MANAGE ORDER");
 
-        tblRestaurantWorkRequest.setBackground(new java.awt.Color(204, 255, 204));
         tblRestaurantWorkRequest.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         tblRestaurantWorkRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -126,8 +122,8 @@ public class ViewOrderInformation extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRestaurantWorkRequest);
 
         btnBack1.setBackground(new java.awt.Color(255, 255, 204));
-        btnBack1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        btnBack1.setText("<<");
+        btnBack1.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+        btnBack1.setText("Back");
         btnBack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack1ActionPerformed(evt);
@@ -142,30 +138,36 @@ public class ViewOrderInformation extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1035, Short.MAX_VALUE)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 831, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 169, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnBack1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBack1)
+                        .addGap(0, 911, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnBack1)
-                .addGap(35, 35, 35)
+                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(83, 83, 83)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-        PharmaceuticalAdminWorkArea adminWorkAreaJPanel = new PharmaceuticalAdminWorkArea(userProcessContainer,account, newlife);
-        userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
+        PharmacyAdminWorkArea pharmacyAdminWorkArea = new PharmacyAdminWorkArea(userProcessContainer,account, newlife);
+        userProcessContainer.add("PharmacyAdminWorkArea", pharmacyAdminWorkArea);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBack1ActionPerformed
