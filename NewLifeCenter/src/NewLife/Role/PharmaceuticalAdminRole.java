@@ -6,6 +6,7 @@ package NewLife.Role;
 
 import NewLife.UserAccount.UserAccount;
 import NewLifeCenter.NewLife;
+import UI.PharmaAdminRole.PharmaceuticalAdminWorkArea;
 import javax.swing.JPanel;
 
 /**
@@ -16,7 +17,7 @@ public class PharmaceuticalAdminRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, NewLife business) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new PharmaceuticalAdminWorkArea(userProcessContainer,account,business);
     }
     
 }

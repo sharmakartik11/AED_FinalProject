@@ -241,7 +241,7 @@ public class UpdatePharmaceuticalInformation extends javax.swing.JPanel {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         confirmButton.setVisible(true);
-        //setVisibleEditable(true);
+        setVisibleEditable(true);
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed

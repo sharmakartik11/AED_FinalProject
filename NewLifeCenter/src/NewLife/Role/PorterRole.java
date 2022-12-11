@@ -16,7 +16,7 @@ public class PorterRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, NewLife business) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new PorterWorkArea(userProcessContainer,account,business);//To change body of generated methods, choose Tools | Templates.
     }
     
 }
