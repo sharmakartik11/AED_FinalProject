@@ -110,7 +110,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
     
     private void sendMail(){
         String from = "newlifecentertreatment@gmail.com";
-        String pass = "Newlifecenter@1";
+        String pass = "frcgnmvxvbididna";
         String[] to = { workRequest.getPatient().getEmail() }; // list of recipient email addresses
         String subject = "ZOOM LINK";
         String body = zoomLinkTxtField.getText();
