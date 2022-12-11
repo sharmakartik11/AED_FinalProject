@@ -60,7 +60,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 199;
         gridBagConstraints.ipady = 17;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(29, 207, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(29, 200, 0, 0);
         add(btnManageHospital, gridBagConstraints);
 
         btnManagePharmaceutical.setBackground(new java.awt.Color(255, 255, 204));
@@ -78,7 +78,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 133;
         gridBagConstraints.ipady = 23;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(26, 207, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(26, 200, 0, 0);
         add(btnManagePharmaceutical, gridBagConstraints);
 
         btnManagePharmacy.setBackground(new java.awt.Color(255, 255, 204));
@@ -96,20 +96,25 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 186;
         gridBagConstraints.ipady = 19;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 207, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 200, 0, 0);
         add(btnManagePharmacy, gridBagConstraints);
 
         btnManageGovernment.setBackground(new java.awt.Color(255, 255, 204));
         btnManageGovernment.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        btnManageGovernment.setText("Manage Government");
+        btnManageGovernment.setText("Manage Insurance Provider");
         btnManageGovernment.setBorderPainted(false);
+        btnManageGovernment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageInsuranceProviderlActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.ipadx = 163;
+        gridBagConstraints.ipadx = 100;
         gridBagConstraints.ipady = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 207, 28, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 200, 65, 0);
         add(btnManageGovernment, gridBagConstraints);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -117,11 +122,11 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 237;
         gridBagConstraints.ipady = -193;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(22, 30, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(22, 23, 0, 0);
         add(jLabel3, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
@@ -131,10 +136,10 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 251;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(28, 24, 0, 25);
+        gridBagConstraints.insets = new java.awt.Insets(64, 17, 0, 0);
         add(jLabel2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -161,6 +166,14 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManagePharmaceuticalActionPerformed
+
+    private void btnManageInsuranceProviderlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageInsuranceProviderlActionPerformed
+        // TODO add your handling code here:
+        ManageInsuranceProvider manageInsuranceProviderJPanel =new ManageInsuranceProvider(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageInsuranceProviderJPanel",manageInsuranceProviderJPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageInsuranceProviderlActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
