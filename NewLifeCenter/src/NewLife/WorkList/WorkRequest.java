@@ -10,6 +10,7 @@ import NewLife.AmbulanceDriver.AmbulanceDriver;
 import NewLife.Doctors.Doctor;
 import NewLife.Government.Municipality;
 import NewLife.Hospital.HospitalAdmin;
+import NewLife.InsuranceBody.InsuranceBody;
 import NewLife.LabAssistant.LabAssistant;
 import NewLife.Patient.Patient;
 import NewLife.Pharmaceutical.Pharmaceutical;
@@ -42,6 +43,7 @@ public abstract class WorkRequest extends UserAccount{
     private Reception reception;
     private Doctor doctor;
     private Municipality government;
+    private InsuranceBody insurance;
     private HospitalAdmin hospitalAdmin;
     private LabAssistant labAssistant;
     private AmbulanceDriver ambulanceDriver;
@@ -89,6 +91,16 @@ public abstract class WorkRequest extends UserAccount{
     public void setTestType(String testType) {
         this.testType = testType;
     }
+
+    public InsuranceBody getInsurance() {
+        return insurance;
+    }
+
+    public void setInsurance(InsuranceBody insurance) {
+        this.insurance = insurance;
+    }
+    
+    
     
     
     

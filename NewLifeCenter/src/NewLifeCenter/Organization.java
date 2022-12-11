@@ -12,6 +12,7 @@ import NewLife.Doctors.DoctorDirectory;
 import NewLife.Employee.EmployeeDirectory;
 import NewLife.Government.MunicipalityDirectory;
 import NewLife.Hospital.HospitalAdminDirectory;
+import NewLife.InsuranceBody.InsuranceProviderDirectory;
 import NewLife.LabAssistant.LabAssistantDirectory;
 import NewLife.MedicalInformation.MedicalInformationDirectory;
 import NewLife.Patient.PatientDirectory;
@@ -46,6 +47,7 @@ public abstract class Organization {
     private AccountDirectory accountDirectory; 
     private MedicalInformationDirectory medInfoDirectory;
     private PharmacyInventory itemList;
+    private InsuranceProviderDirectory insuranceProviderDirectory;
     
     private int organizationID;
     private static int counter=0;
@@ -62,7 +64,7 @@ public abstract class Organization {
         Lab("Lab"),
         Account("Account"),
         DeliveryMan("Delivery"),
-
+        InsuranceAdmin("InsuranceAdmin"),
         SysAdmin("Sysadmin");
         
         private String value;
@@ -91,7 +93,7 @@ public abstract class Organization {
         governmentDirectory = new MunicipalityDirectory();
         pharmaceuticalDirectory = new PharmaceuticalDirectory();
         medInfoDirectory = new MedicalInformationDirectory();
-        
+        insuranceProviderDirectory = new InsuranceProviderDirectory();
         itemList = new PharmacyInventory();
         organizationID = counter;
         ++counter;
@@ -241,5 +243,15 @@ public abstract class Organization {
     public void setHospitalDirectory(HospitalAdminDirectory hospitalDirectory) {
         this.hospitalDirectory = hospitalDirectory;
     }
+
+    public InsuranceProviderDirectory getInsuranceProviderDirectory() {
+        return insuranceProviderDirectory;
+    }
+
+    public void setInsuranceProviderDirectory(InsuranceProviderDirectory insuranceProviderDirectory) {
+        this.insuranceProviderDirectory = insuranceProviderDirectory;
+    }
+    
+    
     
 }

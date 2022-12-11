@@ -9,6 +9,7 @@ import NewLife.AmbulanceDriver.AmbulanceDriverDirectory;
 import NewLife.Doctors.DoctorDirectory;
 import NewLife.Government.MunicipalityDirectory;
 import NewLife.Hospital.HospitalAdminDirectory;
+import NewLife.InsuranceBody.InsuranceProviderDirectory;
 import NewLife.LabAssistant.LabAssistantDirectory;
 import NewLife.MedicalInformation.MedicalInformationDirectory;
 import NewLife.Patient.PatientDirectory;
@@ -41,6 +42,7 @@ public class NewLife extends Organization{
     private LabAssistantDirectory labAssistantDirectory;
     private AccountDirectory accountDirectory;
     private MedicalInformationDirectory medInfoDirectory;
+    
     private WorkList workQueue;
     
     
@@ -57,7 +59,6 @@ public class NewLife extends Organization{
         this.labAssistantDirectory = labAssistantDirectory;
         this.accountDirectory = accountDirectory;
         this.medInfoDirectory = medInfoDirectory;
-        
         this.workQueue = workQueue;
     }
     

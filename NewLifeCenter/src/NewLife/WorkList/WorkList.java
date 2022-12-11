@@ -50,6 +50,19 @@ public class WorkList{
         return workRequestListGovernment;
     }
     
+    public List<WorkRequest> getWorkRequestListInsurance(UserAccount account){
+        List<WorkRequest> workRequestListInsurance = new ArrayList();
+        for(WorkRequest workRequest : workRequestList){
+            if(workRequest.getInsurance()!= null){
+                UserAccount customerAccount = workRequest.getInsurance();
+                if(customerAccount.getUsername().equals(account.getUsername())){
+                    workRequestListInsurance.add(workRequest);
+                }
+            }
+        }
+        return workRequestListInsurance;
+    }
+    
     public List<WorkRequest> getWorkRequestListPharmaceutical(UserAccount account){
         List<WorkRequest> workRequestListPharmaceutical = new ArrayList();
         for(WorkRequest workRequest : workRequestList){

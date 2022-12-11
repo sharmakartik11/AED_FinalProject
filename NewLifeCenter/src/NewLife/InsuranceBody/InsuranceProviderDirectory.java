@@ -13,6 +13,12 @@ import java.util.ArrayList;
 public class InsuranceProviderDirectory {
     private ArrayList<InsuranceBody> insuranceProviderList;
 
+    public InsuranceProviderDirectory() {
+        insuranceProviderList = new ArrayList<InsuranceBody>();
+    }
+    
+    
+
     public ArrayList<InsuranceBody> getInsuranceProviderList() {
         return insuranceProviderList;
     }

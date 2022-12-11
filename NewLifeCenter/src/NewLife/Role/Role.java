@@ -24,6 +24,7 @@ public abstract class Role {
         DeliveryMan("Delivery"),
         AmbulanceDriver("AmbulanceDriver"),
         Lab("Lab"),
+        InsuranceAdmin("InsuranceAdmin"),
         SysAdmin("Sysadmin");
         
         private String value;
