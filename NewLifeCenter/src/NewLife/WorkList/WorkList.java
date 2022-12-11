@@ -4,6 +4,7 @@
  */
 package NewLife.WorkList;
 import NewLife.Porter.Porter;
+import NewLife.WorkList.WorkRequest;
 import NewLife.UserAccount.UserAccount;
 import java.util.ArrayList;
 import java.util.List;

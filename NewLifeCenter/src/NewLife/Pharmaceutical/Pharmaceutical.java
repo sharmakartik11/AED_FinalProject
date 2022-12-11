@@ -77,7 +77,7 @@ public class Pharmaceutical extends UserAccount{
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
-    
+
     @Override
     public String toString() {
         return pharmaceuticalName;
