@@ -16,7 +16,7 @@ public class PharmaAdminRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, NewLife business) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new PharmacyAdminWorkArea(userProcessContainer,account,business);
     }
     
 }
