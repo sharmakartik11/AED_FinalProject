@@ -6,18 +6,19 @@ package NewLife.Role;
 
 import NewLife.UserAccount.UserAccount;
 import NewLifeCenter.NewLife;
-import UI.HospitalAdmin.HospitalAdminArea;
+import UI.AmbulanceRole.AmbulanceWorkArea;
 import javax.swing.JPanel;
+
 
 /**
  *
  * @author shivanidatar
  */
-public class HospitalAdminRole extends Role{
+public class AmbulanceDriverRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, NewLife business) {
-        return new HospitalAdminArea(userProcessContainer,account,business);
+        return new AmbulanceWorkArea(userProcessContainer,account,business);
     }
     
 }

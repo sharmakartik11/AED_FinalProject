@@ -7,7 +7,6 @@ package NewLifeCenter;
 import NewLife.Account.AccountDirectory;
 import NewLife.AmbulanceDriver.AmbulanceDriverDirectory;
 import NewLife.Doctors.DoctorDirectory;
-import NewLife.Government.MunicipalityDirectory;
 import NewLife.Hospital.HospitalAdminDirectory;
 import NewLife.InsuranceBody.InsuranceProviderDirectory;
 import NewLife.LabAssistant.LabAssistantDirectory;
@@ -34,7 +33,7 @@ public class NewLife extends Organization{
     private PorterDirectory deliveryManDirectory;
     private HospitalAdminDirectory hospitalDirectory;
     
-    private MunicipalityDirectory governmentDirectory;
+    
     private PharmaceuticalDirectory pharmaceuticalDirectory;
     private DoctorDirectory doctorDirectory;
     private ReceptionDirectory receptionDirectory;
@@ -46,11 +45,10 @@ public class NewLife extends Organization{
     private WorkList workQueue;
     
     
-    public NewLife(PharmacyDirectory pharmacyDirectory,MedicalInformationDirectory medInfoDirectory,AccountDirectory accountDirectory,LabAssistantDirectory labAssistantDirectory,AmbulanceDriverDirectory ambulanceDriverDirectory, PatientDirectory patientDirectory, PorterDirectory deliveryManDirectory,HospitalAdminDirectory hospitalDirectory,MunicipalityDirectory governmentDirectory,PharmaceuticalDirectory pharmaceuticalDirectory,DoctorDirectory doctorDirectory,ReceptionDirectory receptionDirectory,WorkList workQueue) {
+    public NewLife(PharmacyDirectory pharmacyDirectory,MedicalInformationDirectory medInfoDirectory,AccountDirectory accountDirectory,LabAssistantDirectory labAssistantDirectory,AmbulanceDriverDirectory ambulanceDriverDirectory, PatientDirectory patientDirectory, PorterDirectory deliveryManDirectory,HospitalAdminDirectory hospitalDirectory,PharmaceuticalDirectory pharmaceuticalDirectory,DoctorDirectory doctorDirectory,ReceptionDirectory receptionDirectory,WorkList workQueue) {
         this.pharmacyDirectory = pharmacyDirectory;
         this.patientDirectory = patientDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
-        this.governmentDirectory = governmentDirectory;
         this.hospitalDirectory = hospitalDirectory;
         this.pharmaceuticalDirectory = pharmaceuticalDirectory;
         this.doctorDirectory = doctorDirectory;

@@ -5,8 +5,6 @@
 package UI.PharmaAdminRole;
 
 import NewLifeCenter.NewLife;
-import NewLife.Government.Municipality;
-import NewLife.Government.MunicipalityDirectory;
 import NewLife.MedicalInformation.MedicalInformation;
 import NewLife.Pharmaceutical.Pharmaceutical;
 import NewLife.UserAccount.UserAccount;
@@ -32,7 +30,6 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
     NewLife newlife;
     UserAccount userAccount;
     Pharmaceutical pharmaceutical;
-    MunicipalityDirectory governmentDirectory;
     private List<MedicalInformation> itemQuantityList = new ArrayList<>();
     private int index = -1;
     public MedicineApprovalForm(JPanel userProcessContainer, UserAccount userAccount, NewLife newlife) {
@@ -40,20 +37,20 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.newlife = newlife;
         this.userAccount = userAccount;
-        governmentDirectory = newlife.getGovernmentDirectory();
+        
         pharmaceutical = (Pharmaceutical) userAccount;
-        fillRstList(governmentDirectory.getGovernmentList());
+        //fillRstList(governmentDirectory.getGovernmentList());
         
         
     }
     
      
     
-    public void fillRstList(ArrayList<Municipality> doctorList) {
-        for (Municipality government : doctorList) {
-            rstCombo.addItem(government.getName());
-        }
-    }
+//    public void fillRstList(ArrayList<Municipality> doctorList) {
+//        for (Municipality government : doctorList) {
+//            rstCombo.addItem(government.getName());
+//        }
+//    }
     
     private boolean creatingOrder() {
         LabWorkRequest orderWorkRequest = new LabWorkRequest();
@@ -74,13 +71,13 @@ public class MedicineApprovalForm extends javax.swing.JPanel {
             } else {
                 return false;
             }
-            Municipality government = governmentDirectory.getGovernmentList().get(index);
+            //Municipality government = governmentDirectory.getGovernmentList().get(index);
             
-            if (government != null) {
-                orderWorkRequest.setGovernment(government);                
-            } else {
-                return false;
-            }
+//            if (government != null) {
+//                orderWorkRequest.setGovernment(government);                
+//            } else {
+//                return false;
+//            }
             orderWorkRequest.setRequestDate(new Date());
             orderWorkRequest.setStatus("Request to CDC");
             newlife.getWorkQueue().addWorkRequest(orderWorkRequest);

@@ -10,7 +10,6 @@ import NewLife.AmbulanceDriver.AmbulanceDriverDirectory;
 import NewLife.Porter.PorterDirectory;
 import NewLife.Doctors.DoctorDirectory;
 import NewLife.Employee.EmployeeDirectory;
-import NewLife.Government.MunicipalityDirectory;
 import NewLife.Hospital.HospitalAdminDirectory;
 import NewLife.InsuranceBody.InsuranceProviderDirectory;
 import NewLife.LabAssistant.LabAssistantDirectory;
@@ -38,7 +37,6 @@ public abstract class Organization {
     private PorterDirectory deliveryManDirectory;
     private PharmacyDirectory pharmacyDirectory;
     private PharmaceuticalDirectory pharmaceuticalDirectory;
-    private MunicipalityDirectory governmentDirectory;
     private HospitalAdminDirectory hospitalDirectory;
     private DoctorDirectory doctorDirectory;
     private ReceptionDirectory receptionDirectory;
@@ -90,7 +88,6 @@ public abstract class Organization {
         labAssistantDirectory = new LabAssistantDirectory();
         accountDirectory = new AccountDirectory();
         hospitalDirectory = new HospitalAdminDirectory();
-        governmentDirectory = new MunicipalityDirectory();
         pharmaceuticalDirectory = new PharmaceuticalDirectory();
         medInfoDirectory = new MedicalInformationDirectory();
         insuranceProviderDirectory = new InsuranceProviderDirectory();
@@ -226,14 +223,6 @@ public abstract class Organization {
 
     public void setItemList(PharmacyInventory itemList) {
         this.itemList = itemList;
-    }
-    
-    public MunicipalityDirectory getGovernmentDirectory() {
-        return governmentDirectory;
-    }
-
-    public void setGovernmentDirectory(MunicipalityDirectory governmentDirectory) {
-        this.governmentDirectory = governmentDirectory;
     }
 
     public HospitalAdminDirectory getHospitalDirectory() {

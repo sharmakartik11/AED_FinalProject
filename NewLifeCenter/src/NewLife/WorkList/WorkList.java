@@ -37,18 +37,7 @@ public class WorkList{
         return workRequestListCustomer;
     }
     
-    public List<WorkRequest> getWorkRequestListGovernment(UserAccount account){
-        List<WorkRequest> workRequestListGovernment = new ArrayList();
-        for(WorkRequest workRequest : workRequestList){
-            if(workRequest.getGovernment()!= null){
-                UserAccount customerAccount = workRequest.getGovernment();
-                if(customerAccount.getUsername().equals(account.getUsername())){
-                    workRequestListGovernment.add(workRequest);
-                }
-            }
-        }
-        return workRequestListGovernment;
-    }
+    
     
     public List<WorkRequest> getWorkRequestListInsurance(UserAccount account){
         List<WorkRequest> workRequestListInsurance = new ArrayList();

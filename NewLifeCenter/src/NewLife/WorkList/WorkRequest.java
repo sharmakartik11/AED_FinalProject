@@ -8,7 +8,6 @@ import NewLife.MedicalInformation.MedicalInformation;
 import NewLife.Account.Account;
 import NewLife.AmbulanceDriver.AmbulanceDriver;
 import NewLife.Doctors.Doctor;
-import NewLife.Government.Municipality;
 import NewLife.Hospital.HospitalAdmin;
 import NewLife.InsuranceBody.InsuranceBody;
 import NewLife.LabAssistant.LabAssistant;
@@ -42,7 +41,6 @@ public abstract class WorkRequest extends UserAccount{
     private Porter deliverMan;
     private Reception reception;
     private Doctor doctor;
-    private Municipality government;
     private InsuranceBody insurance;
     private HospitalAdmin hospitalAdmin;
     private LabAssistant labAssistant;
@@ -66,14 +64,6 @@ public abstract class WorkRequest extends UserAccount{
 
     public void setBill(String bill) {
         this.bill = bill;
-    }
-
-    public Municipality getGovernment() {
-        return government;
-    }
-
-    public void setGovernment(Municipality government) {
-        this.government = government;
     }
 
     public String getZoomLink() {
