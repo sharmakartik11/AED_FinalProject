@@ -61,6 +61,13 @@ public class PatientAreaPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }
+    
+    private void insuranceForm(){
+        InsuranceClaimApprovalForm approvalForm = new InsuranceClaimApprovalForm(userProcessContainer, userAccount, newLife);
+        userProcessContainer.add("ApprovalForm", approvalForm);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }
 
 
     /**
@@ -79,6 +86,7 @@ public class PatientAreaPanel extends javax.swing.JPanel {
         btnorderInfoAndFeedback1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnorderInfoAndFeedback2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -93,10 +101,10 @@ public class PatientAreaPanel extends javax.swing.JPanel {
 
         btnorderInfoAndFeedback.setBackground(new java.awt.Color(255, 255, 204));
         btnorderInfoAndFeedback.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        btnorderInfoAndFeedback.setText("View Hospital Information");
+        btnorderInfoAndFeedback.setText("Insurance Claim Form");
         btnorderInfoAndFeedback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnorderInfoAndFeedbackActionPerformed(evt);
+                insuranceClaimApprovalbtnActionPerformed(evt);
             }
         });
 
@@ -134,6 +142,15 @@ public class PatientAreaPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("WELCOME, DEAR PATIENT!");
 
+        btnorderInfoAndFeedback2.setBackground(new java.awt.Color(255, 255, 204));
+        btnorderInfoAndFeedback2.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnorderInfoAndFeedback2.setText("View Hospital Information");
+        btnorderInfoAndFeedback2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnorderInfoAndFeedback2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -148,12 +165,14 @@ public class PatientAreaPanel extends javax.swing.JPanel {
                         .addGap(50, 50, 50))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnOrderIssue1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnorderInfoAndFeedback1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnOrderIssue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnOrderIssue2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnorderInfoAndFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnorderInfoAndFeedback2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnOrderIssue1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnorderInfoAndFeedback1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnOrderIssue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnOrderIssue2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnorderInfoAndFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(64, 64, 64))))
         );
         layout.setVerticalGroup(
@@ -161,6 +180,7 @@ public class PatientAreaPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
@@ -172,8 +192,9 @@ public class PatientAreaPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(btnOrderIssue2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(btnorderInfoAndFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
+                        .addComponent(btnorderInfoAndFeedback2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnorderInfoAndFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -181,10 +202,6 @@ public class PatientAreaPanel extends javax.swing.JPanel {
     private void btnOrderIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderIssueActionPerformed
         MedicineOrderIssue();
     }//GEN-LAST:event_btnOrderIssueActionPerformed
-
-    private void btnorderInfoAndFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnorderInfoAndFeedbackActionPerformed
-        OrderInfoAndFeedback();
-    }//GEN-LAST:event_btnorderInfoAndFeedbackActionPerformed
 
     private void btnOrderIssue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderIssue1ActionPerformed
         OrderIssue();
@@ -198,6 +215,15 @@ public class PatientAreaPanel extends javax.swing.JPanel {
         doctorInfo();
     }//GEN-LAST:event_btnorderInfoAndFeedback1ActionPerformed
 
+    private void btnorderInfoAndFeedback2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnorderInfoAndFeedback2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnorderInfoAndFeedback2ActionPerformed
+
+    private void insuranceClaimApprovalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insuranceClaimApprovalbtnActionPerformed
+        // TODO add your handling code here:
+        insuranceForm();
+    }//GEN-LAST:event_insuranceClaimApprovalbtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOrderIssue;
@@ -205,6 +231,7 @@ public class PatientAreaPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnOrderIssue2;
     private javax.swing.JButton btnorderInfoAndFeedback;
     private javax.swing.JButton btnorderInfoAndFeedback1;
+    private javax.swing.JButton btnorderInfoAndFeedback2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
