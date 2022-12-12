@@ -7,6 +7,7 @@ package NewLife.Role;
 import NewLife.UserAccount.UserAccount;
 import NewLifeCenter.NewLife;
 import UI.Reception.ReceptionWorkArea;
+
 import javax.swing.JPanel;
 
 /**

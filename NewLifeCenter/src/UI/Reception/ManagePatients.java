@@ -28,41 +28,15 @@ public class ManagePatients extends javax.swing.JPanel {
     NewLife ecosystem;
     UserAccountDirectory userAccountDirectory;
     UserAccount userAccount;
+
     public ManagePatients(JPanel userProcessContainer,NewLife ecosystem,UserAccount userAccount) {
         initComponents();
+ 
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
-        fillTable();
+        populateTable();
     }
-    
-    private void fillTable() {
-        PatientDirectory patientDirectory = ecosystem.getPatientDirectory();
-        DefaultTableModel model = (DefaultTableModel) tblMenu.getModel();
-       
-        model.setRowCount(0);
-        
-        for (Patient patient : patientDirectory.getPatientList()) {
-                    Object[] row = new Object[13];
-                    row[0] = patient.getUsername();
-                    row[1] = patient.getPassword();
-                    row[2] = patient.getPhone();
-                    row[3] = patient.getAddress();
-                    row[4] = patient.getHeartRate();
-                    row[5] = patient.getBloodPressure();
-                    row[6] = patient.getAge();
-                    row[7] = patient.getHeight();
-                    row[8] = patient.getWeight();
-                    row[9] = patient.getOxygenlevel();
-                    row[10] = patient.getSeverity();
-                    row[11] = patient.getEmail();
-                    
-                    model.addRow(row);
-                
-        }
-    }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -192,6 +166,11 @@ public class ManagePatients extends javax.swing.JPanel {
 
         txtAge.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         txtAge.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAgeActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -395,17 +374,8 @@ public class ManagePatients extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
-        // TODO add your handling code here:
-         ReceptionWorkArea receptionAreaJPanel = new ReceptionWorkArea(userProcessContainer,userAccount, ecosystem);
-        userProcessContainer.add("receptionWorkArea", receptionAreaJPanel);
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnBack2ActionPerformed
-
     private void btnAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemActionPerformed
-        // TODO add your handling code here:
-         if (txtPatientName.getText().isEmpty() || txtPassword.getText().isEmpty() || txtAge.getText().isEmpty() || txtBP.getText().isEmpty() || txtHeartRate.getText().isEmpty() || txtSeverity.getText().isEmpty() || txtEmail.getText().isEmpty() || txtAddress.getText().isEmpty() || txtHeight.getText().isEmpty() || txtWeight.getText().isEmpty() || txtO2Level.getText().isEmpty()) {
+        if (txtPatientName.getText().isEmpty() || txtPassword.getText().isEmpty() || txtAge.getText().isEmpty() || txtBP.getText().isEmpty() || txtHeartRate.getText().isEmpty() || txtSeverity.getText().isEmpty() || txtEmail.getText().isEmpty() || txtAddress.getText().isEmpty() || txtHeight.getText().isEmpty() || txtWeight.getText().isEmpty() || txtO2Level.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Enter all fields");
             return;
         }
@@ -432,7 +402,7 @@ public class ManagePatients extends javax.swing.JPanel {
                 ecosystem.getUserAccountDirectory().addUserAccount(patient);
                 ecosystem.getPatientDirectory().addPatient(patient);
             
-                fillTable();
+                populateTable();
                 txtPatientName.setText("");
                 txtPassword.setText("");
                 txtContact.setText("");
@@ -449,9 +419,43 @@ public class ManagePatients extends javax.swing.JPanel {
         else{
             JOptionPane.showMessageDialog(null, "Username " + txtPatientName.getText() + " exists");
          }
-
     }//GEN-LAST:event_btnAddItemActionPerformed
 
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
+        ReceptionWorkArea receptionAreaJPanel = new ReceptionWorkArea(userProcessContainer,userAccount, ecosystem);
+        userProcessContainer.add("receptionWorkArea", receptionAreaJPanel);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnBack2ActionPerformed
+
+    private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAgeActionPerformed
+private void populateTable() {
+        PatientDirectory patientDirectory = ecosystem.getPatientDirectory();
+        DefaultTableModel model = (DefaultTableModel) tblMenu.getModel();
+       
+        model.setRowCount(0);
+        
+        for (Patient patient : patientDirectory.getPatientList()) {
+                    Object[] row = new Object[13];
+                    row[0] = patient.getUsername();
+                    row[1] = patient.getPassword();
+                    row[2] = patient.getPhone();
+                    row[3] = patient.getAddress();
+                    row[4] = patient.getHeartRate();
+                    row[5] = patient.getBloodPressure();
+                    row[6] = patient.getAge();
+                    row[7] = patient.getHeight();
+                    row[8] = patient.getWeight();
+                    row[9] = patient.getOxygenlevel();
+                    row[10] = patient.getSeverity();
+                    row[11] = patient.getEmail();
+                    
+                    model.addRow(row);
+                
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddItem;

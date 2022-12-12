@@ -8,6 +8,7 @@ import NewLife.DB4OUtil.DB4OUtil;
 import NewLife.Patient.Patient;
 import NewLife.Pharmacy.Pharmacy;
 import NewLife.Porter.Porter;
+import NewLife.Reception.Reception;
 import NewLife.UserAccount.UserAccount;
 import NewLifeCenter.NewLife;
 import java.awt.BorderLayout;

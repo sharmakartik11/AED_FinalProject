@@ -22,26 +22,16 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
     JPanel userProcessContainer;
     NewLife ecosystem;
     UserAccount userAccount;
-    Pharmacy pharma;
+    Pharmacy restaurant;
+
     public ManageReceptionInformation(JPanel userProcessContainer, NewLife ecosystem, UserAccount userAccount) {
-        initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
-        pharma = (Pharmacy)userAccount;
+        restaurant = (Pharmacy)userAccount;
         initComponents();
-        display(pharma);
+        display(restaurant);
         btnSave.setVisible(false);
-    }
-    
-    private void setVisibleEditable(boolean value) {
-        txtReceptionistName.setEditable(value);        
-        txtReceptionistName.setEnabled(value);       
-    }
-
-    private void display(Pharmacy pharma) {
-        setVisibleEditable(false);
-        txtReceptionistName.setText(pharma.getPharmacyName());        
     }
 
     /**
@@ -75,7 +65,7 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.ipadx = 254;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 3, 0, 4);
+        gridBagConstraints.insets = new java.awt.Insets(26, 3, 0, 4);
         add(lblPageHeader, gridBagConstraints);
 
         lblReceptionistName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -106,6 +96,11 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
 
         txtReceptionistName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         txtReceptionistName.setForeground(new java.awt.Color(255, 153, 51));
+        txtReceptionistName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtReceptionistNameActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
@@ -142,6 +137,7 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipady = -8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 13, 0, 0);
         add(btnBack, gridBagConstraints);
@@ -154,27 +150,37 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
         add(jLabel3, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void setVisibleEditable(boolean value) {
+        txtReceptionistName.setEditable(value);        
+        txtReceptionistName.setEnabled(value);       
+    }
+
+    private void display(Pharmacy restaurant) {
+        setVisibleEditable(false);
+        txtReceptionistName.setText(restaurant.getPharmacyName());        
+    }
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+       btnSave.setVisible(true);
+       setVisibleEditable(true);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void txtReceptionistNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtReceptionistNameActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_txtReceptionistNameActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        restaurant.setPharmacyName(txtReceptionistName.getText());
+        setVisibleEditable(false);
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         ReceptionWorkArea adminWorkAreaJPanel = new ReceptionWorkArea(userProcessContainer,userAccount, ecosystem);
         userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
-         btnSave.setVisible(true);
-         setVisibleEditable(true);
-
-    }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
-        pharma.setPharmacyName(txtReceptionistName.getText());
-        setVisibleEditable(false);
-    }//GEN-LAST:event_btnSaveActionPerformed
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

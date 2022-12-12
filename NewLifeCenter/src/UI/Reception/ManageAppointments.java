@@ -4,11 +4,11 @@
  */
 package UI.Reception;
 
+import NewLifeCenter.NewLife;
 import NewLife.UserAccount.UserAccount;
 import NewLife.UserAccount.UserAccountDirectory;
 import NewLife.WorkList.LabWorkRequest;
 import NewLife.WorkList.WorkRequest;
-import NewLifeCenter.NewLife;
 import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.JPanel;
@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 public class ManageAppointments extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageAppointments
+     * Creates new form ViewOrderInformation
      */
     JPanel userProcessContainer;
     NewLife ecosystem;
@@ -38,8 +38,7 @@ public class ManageAppointments extends javax.swing.JPanel {
         this.account = account;
         fillRstReqTable();
     }
-    
-    private void fillRstReqTable(){
+     private void fillRstReqTable(){
         DefaultTableModel model = (DefaultTableModel) tblRestaurantWorkRequest.getModel();
         model.setRowCount(0);
         workRequestList = ecosystem.getWorkQueue().getWorkRequestListHospital(account);
@@ -186,7 +185,6 @@ public class ManageAppointments extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-        // TODO add your handling code here:
         ReceptionWorkArea adminWorkAreaJPanel = new ReceptionWorkArea(userProcessContainer,account, ecosystem);
         userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();

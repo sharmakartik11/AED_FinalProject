@@ -43,5 +43,4 @@ public class Reception extends UserAccount{
     public String toString() {
         return receptionName;
     }
-    
 }

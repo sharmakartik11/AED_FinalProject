@@ -21,11 +21,12 @@ public class ReceptionWorkArea extends javax.swing.JPanel {
     JPanel userProcessContainer;
     NewLife ecosystem;
     UserAccount userAccount;
+    /** Creates new form AdminWorkAreaJPanel */
     public ReceptionWorkArea(JPanel userProcessContainer, UserAccount userAccount, NewLife ecosystem) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
-        this.userAccount = userAccount;   
+        this.userAccount = userAccount;        
     }
     
     private void manageOrders() {
@@ -59,29 +60,14 @@ public class ReceptionWorkArea extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         manageOrganizationJButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         userJButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-
-        jLabel4.setText("jLabel4");
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Reception/AppointmentList.png"))); // NOI18N
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 102));
-        addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                manageOrganizationJButtonActionPerformed(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
         setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
@@ -92,22 +78,24 @@ public class ReceptionWorkArea extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 99;
-        gridBagConstraints.ipady = -16;
+        gridBagConstraints.ipadx = 196;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(42, 33, 0, 167);
+        gridBagConstraints.insets = new java.awt.Insets(30, 3, 0, 0);
         add(jLabel1, gridBagConstraints);
 
         manageOrganizationJButton.setBackground(new java.awt.Color(255, 255, 204));
         manageOrganizationJButton.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         manageOrganizationJButton.setText("Manage Appointments");
+        manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageOrganizationJButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 46;
-        gridBagConstraints.ipady = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 181, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(40, 206, 0, 0);
         add(manageOrganizationJButton, gridBagConstraints);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -120,9 +108,6 @@ public class ReceptionWorkArea extends javax.swing.JPanel {
         userJButton1.setBackground(new java.awt.Color(255, 255, 204));
         userJButton1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         userJButton1.setText("Manage Patients");
-        userJButton1.setMaximumSize(new java.awt.Dimension(230, 35));
-        userJButton1.setMinimumSize(new java.awt.Dimension(184, 32));
-        userJButton1.setPreferredSize(new java.awt.Dimension(230, 35));
         userJButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userJButton1ActionPerformed(evt);
@@ -131,10 +116,9 @@ public class ReceptionWorkArea extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 101;
-        gridBagConstraints.ipady = -5;
+        gridBagConstraints.ipadx = 55;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 181, 12, 0);
+        gridBagConstraints.insets = new java.awt.Insets(27, 206, 111, 0);
         add(userJButton1, gridBagConstraints);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -144,29 +128,23 @@ public class ReceptionWorkArea extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(jLabel3, gridBagConstraints);
 
-        jLabel6.setBackground(new java.awt.Color(0, 102, 102));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Reception/Reception.png"))); // NOI18N
-        jLabel6.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Reception/Reception.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 195;
-        gridBagConstraints.ipady = 17;
+        gridBagConstraints.ipadx = 107;
+        gridBagConstraints.ipady = 15;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(33, 118, 0, 0);
-        add(jLabel6, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(54, 218, 0, 0);
+        add(jLabel4, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void manageOrganizationJButtonActionPerformed(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
-        // TODO add your handling code here:
+    private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
         manageOrders();
     }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
 
     private void userJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButton1ActionPerformed
-        // TODO add your handling code here:
         managePatients();
     }//GEN-LAST:event_userJButton1ActionPerformed
 
@@ -176,8 +154,6 @@ public class ReceptionWorkArea extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton userJButton1;
     // End of variables declaration//GEN-END:variables

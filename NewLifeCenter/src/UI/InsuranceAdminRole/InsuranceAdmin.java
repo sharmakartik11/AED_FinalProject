@@ -31,7 +31,7 @@ public class InsuranceAdmin extends javax.swing.JPanel {
     }
     
     // Manage orders
-    private void manageOrders() {
+    private void manageClaims() {
         ViewOrderDetails viewOrderDetails = new ViewOrderDetails(userProcessContainer,ecosystem,userAccount);
         userProcessContainer.add("ViewOrderDetails",viewOrderDetails);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -39,8 +39,8 @@ public class InsuranceAdmin extends javax.swing.JPanel {
     }
     
     private void manageInfo() {
-        PatientRecords updateRestaurantInfoJPanel = new PatientRecords(userProcessContainer,ecosystem, userAccount);
-        userProcessContainer.add("UpdateRestaurantInfoJPanel",updateRestaurantInfoJPanel);
+        PatientRecords updatePatientInfoJPanel = new PatientRecords(userProcessContainer,ecosystem, userAccount);
+        userProcessContainer.add("updatePatientInfoJPanel",updatePatientInfoJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }
@@ -127,11 +127,12 @@ public class InsuranceAdmin extends javax.swing.JPanel {
 
     private void btnManageApprovalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageApprovalsActionPerformed
         // TODO add your handling code here:
-        
+        manageClaims();
     }//GEN-LAST:event_btnManageApprovalsActionPerformed
 
     private void btnViewPatientRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientRecordsActionPerformed
         // TODO add your handling code here:
+        manageInfo();
     }//GEN-LAST:event_btnViewPatientRecordsActionPerformed
 
 

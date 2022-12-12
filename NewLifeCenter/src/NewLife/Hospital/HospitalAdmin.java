@@ -23,10 +23,6 @@ public class HospitalAdmin extends UserAccount{
     public void setHospitalName(String hospitalName) {
         this.hospitalName = hospitalName;
     }
-    
-    private void setName(String governmentName){
-        this.hospitalName = governmentName;
-    }
 
     public String getAddress() {
         return address;
