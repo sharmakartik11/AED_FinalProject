@@ -329,14 +329,18 @@ private void change() {
             case "Request to HospitalAdmin": {
                 btnaccept.setText("Accept request");
                 btndecline.setVisible(true);
+                break;
             }
             case "Ambulance on the way": {
                 btnaccept.setText("Ready for pickup");
                 btndecline.setVisible(false);
+                break;
             }
             default: {
                 btnaccept.setVisible(false);
                 btndecline.setVisible(false);
+                break;
+                
             }
         }
         fillDelUI();

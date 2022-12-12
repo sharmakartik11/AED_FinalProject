@@ -64,6 +64,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
                 break;
             default:
                 btnStatus.setVisible(false);
+                break;
         }
     }
     
@@ -373,8 +374,9 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
 
     private void btnStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatusActionPerformed
         // TODO add your handling code here:
-        
+        System.out.println(workRequest.getStatus());
          if (workRequest.getStatus().equals("Doctor Assigned")) {
+             System.out.println("inside if");
             ThreadLocalRandom random = ThreadLocalRandom.current();
             int leftLimit = 48; // numeral '0'
             int rightLimit = 122; // letter 'z'
@@ -391,10 +393,12 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Meeting will start");
             zoomLinkTxtField.setEnabled(false);
         } else if (workRequest.getStatus().equals("Zoom meeting scheduled")) {
+            System.out.println("inside elif");
             workRequest.setStatus("Meeting ended");
             workRequest.setTestResult("Meeting Completed");
             JOptionPane.showMessageDialog(null, "Meeting has ended");
         } else {
+            System.out.println("inside else");
             btnStatus.setVisible(false);
         }
         changeButtonText();

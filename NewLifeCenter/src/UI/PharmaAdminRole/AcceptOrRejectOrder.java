@@ -80,14 +80,17 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
             case "Request to Pharmaceutical": {
                 acceptOrder.setText("Accept order");
                 declineOrder.setVisible(true);
+                break;
             }
             case "Preparing": {
                 acceptOrder.setText("Ready for delivery");
                 declineOrder.setVisible(false);
+                break;
             }
             default: {
                 declineOrder.setVisible(false);
                 acceptOrder.setVisible(false);
+                break;
             }
         }
         

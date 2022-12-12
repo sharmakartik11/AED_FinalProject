@@ -249,14 +249,17 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
             case "Request to Hospital": {
                 acceptOrder.setText("Accept appointment");
                 declineOrder.setVisible(true);
+                break;
             }
             case "Waiting for doctor to be assigned": {
                 acceptOrder.setText("Ping the Doctor");
                 declineOrder.setVisible(false);
+                break;
             }
             default: {
                 declineOrder.setVisible(false);
                 acceptOrder.setVisible(false);
+                break;
             }
         }
         fillDelUI();

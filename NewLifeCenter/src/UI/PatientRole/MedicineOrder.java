@@ -91,7 +91,7 @@ public class MedicineOrder extends javax.swing.JPanel {
         
         defaultTableModel.setRowCount(0);
         Pharmacy pharmacy = pharmacyDirectory.getPharmacyList().get(index);
-        //System.out.println(pharmacyDirectory.getPharmacyList().get(index).getMenu());
+        System.out.println(pharmacyDirectory.getPharmacyList().get(index).getMenu());
         PharmacyInventory pharmacyInventory = pharmacy.getMenu();
         
         List<PharmacyMedicine> items = pharmacyInventory.getItemList();

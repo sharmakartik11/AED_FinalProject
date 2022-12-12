@@ -150,7 +150,7 @@ public class PorterWorkArea extends javax.swing.JPanel {
         add(jLabel1, gridBagConstraints);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/PorterRole/delivery.jpeg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Porter/delivery.jpeg"))); // NOI18N
         jLabel3.setMaximumSize(new java.awt.Dimension(750, 400));
         jLabel3.setMinimumSize(new java.awt.Dimension(750, 400));
         jLabel3.setPreferredSize(new java.awt.Dimension(750, 400));
