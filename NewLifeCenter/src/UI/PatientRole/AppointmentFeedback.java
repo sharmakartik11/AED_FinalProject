@@ -56,8 +56,8 @@ public class AppointmentFeedback extends javax.swing.JPanel {
     }
     
     private void sendMail(){
-        String from = "newlifecentertreatment@gmail.com";
-        String pass = "frcgnmvxvbididna";
+        String from = "newlifecentersystem@gmail.com";
+        String pass = "trjhduhplnrblqco";
         String[] to = { "sharmakartik12@gmail.com" }; // list of recipient email addresses
         String subject = "INVOICE";
         String body = "Payment of Rs.1200 is done. Thank you :)";

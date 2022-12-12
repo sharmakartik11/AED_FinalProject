@@ -82,8 +82,8 @@ public class ProcessWorkRequestPanel extends javax.swing.JPanel {
     }
     
     private void sendMail(){
-        String from = "guglani.shivani@gmail.com";
-        String pass = "peytkyrryibntwxx";
+        String from = "newlifecentersystem@gmail.com";
+        String pass = "trjhduhplnrblqco";
         String[] to = { workRequest.getPatient().getEmail() }; // list of recipient email addresses
         String subject = "LAB RESULTS";
         String body = workRequest.getTestType()+" results are now ready, "+report[r.nextInt(4)];
