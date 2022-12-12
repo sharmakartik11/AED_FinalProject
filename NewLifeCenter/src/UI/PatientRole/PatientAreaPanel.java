@@ -217,6 +217,7 @@ public class PatientAreaPanel extends javax.swing.JPanel {
 
     private void btnorderInfoAndFeedback2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnorderInfoAndFeedback2ActionPerformed
         // TODO add your handling code here:
+        OrderInfoAndFeedback();
     }//GEN-LAST:event_btnorderInfoAndFeedback2ActionPerformed
 
     private void insuranceClaimApprovalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insuranceClaimApprovalbtnActionPerformed
