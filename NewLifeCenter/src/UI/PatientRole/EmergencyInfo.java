@@ -116,7 +116,6 @@ public class EmergencyInfo extends javax.swing.JPanel {
 
         jLabel2.setBackground(new java.awt.Color(166, 203, 230));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/PatientRole/Screen Shot 2022-04-28 at 8.41.09 PM.png"))); // NOI18N
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/PatientRole/emer1.png"))); // NOI18N
         jLabel3.setText("jLabel3");
