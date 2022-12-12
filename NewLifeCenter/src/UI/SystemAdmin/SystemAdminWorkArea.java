@@ -18,11 +18,11 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
      * Creates new form SystemAdminWorkArea
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
-    public SystemAdminWorkArea(JPanel userProcessContainer,NewLife ecosystem) {
+    NewLife newlife;
+    public SystemAdminWorkArea(JPanel userProcessContainer,NewLife newlife) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
-        this.ecosystem=ecosystem;
+        this.newlife=newlife;
     }
 
     /**
@@ -145,7 +145,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
 
     private void btnManageHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospitalActionPerformed
         // TODO add your handling code here:
-        ManageHospital manageHospitalJPanel =new ManageHospital(userProcessContainer, ecosystem);
+        ManageHospital manageHospitalJPanel =new ManageHospital(userProcessContainer, newlife);
         userProcessContainer.add("manageHospitalJPanel",manageHospitalJPanel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -153,7 +153,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
 
     private void btnManagePharmacyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePharmacyActionPerformed
         // TODO add your handling code here:
-        ManagePharmacy managePharmacyJPanel =new ManagePharmacy(userProcessContainer, ecosystem);
+        ManagePharmacy managePharmacyJPanel =new ManagePharmacy(userProcessContainer, newlife);
         userProcessContainer.add("managePharmacyJPanel",managePharmacyJPanel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -161,7 +161,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
 
     private void btnManagePharmaceuticalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePharmaceuticalActionPerformed
         // TODO add your handling code here:
-        ManagePharmaceutical manageParmaceuticalJPanel =new ManagePharmaceutical(userProcessContainer, ecosystem);
+        ManagePharmaceutical manageParmaceuticalJPanel =new ManagePharmaceutical(userProcessContainer, newlife);
         userProcessContainer.add("manageParmaceuticalJPanel",manageParmaceuticalJPanel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -169,7 +169,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
 
     private void btnManageInsuranceProviderlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageInsuranceProviderlActionPerformed
         // TODO add your handling code here:
-        ManageInsuranceProvider manageInsuranceProviderJPanel =new ManageInsuranceProvider(userProcessContainer, ecosystem);
+        ManageInsuranceProvider manageInsuranceProviderJPanel =new ManageInsuranceProvider(userProcessContainer, newlife);
         userProcessContainer.add("manageInsuranceProviderJPanel",manageInsuranceProviderJPanel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

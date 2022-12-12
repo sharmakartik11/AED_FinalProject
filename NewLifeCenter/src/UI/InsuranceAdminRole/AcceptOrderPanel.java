@@ -22,12 +22,12 @@ public class AcceptOrderPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     UserAccount userAccount;
-    NewLife ecosystem;
+    NewLife newlife;
     InsuranceWorkRequest insuranceWorkRequest;
-    public AcceptOrderPanel(JPanel userProcessContainer, NewLife ecosystem, UserAccount userAccount, InsuranceWorkRequest insuranceWorkRequest) {
+    public AcceptOrderPanel(JPanel userProcessContainer, NewLife newlife, UserAccount userAccount, InsuranceWorkRequest insuranceWorkRequest) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
+        this.newlife = newlife;
         this.userAccount = userAccount;
         this.insuranceWorkRequest = insuranceWorkRequest;
         change();
@@ -228,7 +228,7 @@ public class AcceptOrderPanel extends javax.swing.JPanel {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-        ViewOrderDetails viewOrderDetails = new ViewOrderDetails(userProcessContainer,ecosystem, userAccount);
+        ViewOrderDetails viewOrderDetails = new ViewOrderDetails(userProcessContainer,newlife, userAccount);
         userProcessContainer.add("ViewOrderDetails", viewOrderDetails);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

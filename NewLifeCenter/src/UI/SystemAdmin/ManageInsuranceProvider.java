@@ -27,18 +27,18 @@ public class ManageInsuranceProvider extends javax.swing.JPanel {
      * Creates new form ManageInsuranceProvider
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccountDirectory userAccountList;
-    public ManageInsuranceProvider(JPanel userProcessContainer,NewLife ecosystem) {
+    public ManageInsuranceProvider(JPanel userProcessContainer,NewLife newlife) {
         initComponents();
         creatingListenerForModification();
         this.userProcessContainer=userProcessContainer;
-        this.ecosystem=ecosystem;
+        this.newlife=newlife;
         //fillTable();
     }
     
     private void fillTable() {
-        InsuranceProviderDirectory insuranceAdminDirectory = ecosystem.getInsuranceProviderDirectory();
+        InsuranceProviderDirectory insuranceAdminDirectory = newlife.getInsuranceProviderDirectory();
         DefaultTableModel model = (DefaultTableModel) tblDeliveryMan.getModel();
         
         model.setRowCount(0);
@@ -279,14 +279,14 @@ public class ManageInsuranceProvider extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Enter all fields");
             return;
         }
-        if(ecosystem.getUserAccountDirectory().checkUsernameUnique(userNameTextfield.getText())){
+        if(newlife.getUserAccountDirectory().checkUsernameUnique(userNameTextfield.getText())){
             InsuranceBody insuranceAdmin = new InsuranceBody();
             insuranceAdmin.setInsuranceProviderName(deliveryManNameTextfield.getText());
             insuranceAdmin.setUsername(userNameTextfield.getText());
             insuranceAdmin.setPassword(passwordTextfield.getText());
             insuranceAdmin.setRole(new InsuranceAdminRole());
-            ecosystem.getUserAccountDirectory().addUserAccount(insuranceAdmin);
-            ecosystem.getInsuranceProviderDirectory().addInsuranceProvider(insuranceAdmin);
+            newlife.getUserAccountDirectory().addUserAccount(insuranceAdmin);
+            newlife.getInsuranceProviderDirectory().addInsuranceProvider(insuranceAdmin);
 
             fillTable();
             userNameTextfield.setText("");
@@ -328,7 +328,7 @@ public class ManageInsuranceProvider extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             InsuranceBody admin = (InsuranceBody) tblDeliveryMan.getValueAt(selectedRow, 0);
-            InsuranceProviderDirectory insuranceProviderList = ecosystem.getInsuranceProviderDirectory();
+            InsuranceProviderDirectory insuranceProviderList = newlife.getInsuranceProviderDirectory();
             insuranceProviderList.deleteInsuranceProvider(admin);
             JOptionPane.showMessageDialog(null, "Insurance Admin"  + userNameTextfield.getText() + " deleted");
             fillTable();

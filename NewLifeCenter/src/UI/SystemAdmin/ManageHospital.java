@@ -27,18 +27,18 @@ public class ManageHospital extends javax.swing.JPanel {
      * Creates new form ManageHospital
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccountDirectory userAccountList;
-    public ManageHospital(JPanel userProcessContainer,NewLife ecosystem) {
+    public ManageHospital(JPanel userProcessContainer,NewLife newlife) {
         initComponents();
         creatingListenerForModification();
         this.userProcessContainer=userProcessContainer;
-        this.ecosystem=ecosystem;
+        this.newlife=newlife;
         fillTable();
     }
     
     private void fillTable() {
-        HospitalAdminDirectory hospitalAdminDirectory = ecosystem.getHospitalDirectory();
+        HospitalAdminDirectory hospitalAdminDirectory = newlife.getHospitalDirectory();
         DefaultTableModel model = (DefaultTableModel) tblDeliveryMan.getModel();
         
         model.setRowCount(0);
@@ -327,7 +327,7 @@ private void backjButton1ActionPerformed(java.awt.event.ActionEvent evt) {
             JOptionPane.showMessageDialog(null, "Enter a valid phone number");
             return;
         }
-        if(ecosystem.getUserAccountDirectory().checkUsernameUnique(userNameTextfield.getText())){
+        if(newlife.getUserAccountDirectory().checkUsernameUnique(userNameTextfield.getText())){
             HospitalAdmin hospitalAdmin = new HospitalAdmin();
             hospitalAdmin.setHospitalName(deliveryManNameTextfield.getText());
             hospitalAdmin.setAddress(locationTxtField.getText());
@@ -335,8 +335,8 @@ private void backjButton1ActionPerformed(java.awt.event.ActionEvent evt) {
             hospitalAdmin.setPassword(passwordTextfield.getText());
             hospitalAdmin.setContactNumber(contacttxt.getText());
             hospitalAdmin.setRole(new HospitalAdminRole());
-            ecosystem.getUserAccountDirectory().addUserAccount(hospitalAdmin);
-            ecosystem.getHospitalDirectory().addHospital(hospitalAdmin);
+            newlife.getUserAccountDirectory().addUserAccount(hospitalAdmin);
+            newlife.getHospitalDirectory().addHospital(hospitalAdmin);
 
             fillTable();
             userNameTextfield.setText("");
@@ -383,7 +383,7 @@ private void backjButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 
         if (selectedRow >= 0) {
             HospitalAdmin admin = (HospitalAdmin) tblDeliveryMan.getValueAt(selectedRow, 0);
-            HospitalAdminDirectory hospitalAdminDirectory = ecosystem.getHospitalDirectory();
+            HospitalAdminDirectory hospitalAdminDirectory = newlife.getHospitalDirectory();
             hospitalAdminDirectory.deleteHospital(admin);
             JOptionPane.showMessageDialog(null, "Hospital Admin"  + userNameTextfield.getText() + " deleted");
             fillTable();

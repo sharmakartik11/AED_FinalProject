@@ -27,21 +27,21 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     UserAccount userAccount;
-    NewLife ecosystem;
+    NewLife newlife;
     LabWorkRequest labTestWorkRequest;
     double total = 0.0;
     private PorterDirectory deliveryManDirectory;
     private DoctorDirectory doctorDirectory;
     private int index = -1;
 
-    public AcceptOrRejectOrder(JPanel userProcessContainer, NewLife ecosystem, UserAccount userAccount, LabWorkRequest labTestWorkRequest) {
+    public AcceptOrRejectOrder(JPanel userProcessContainer, NewLife newlife, UserAccount userAccount, LabWorkRequest labTestWorkRequest) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
+        this.newlife = newlife;
         this.userAccount = userAccount;
         this.labTestWorkRequest = labTestWorkRequest;
-        deliveryManDirectory = ecosystem.getDeliveryManDirectory();
-        doctorDirectory = ecosystem.getDoctorDirectory();
+        deliveryManDirectory = newlife.getDeliveryManDirectory();
+        doctorDirectory = newlife.getDoctorDirectory();
         fillDelList(doctorDirectory.getDoctorList());
         change();
         display();
@@ -291,7 +291,7 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
         } 
     }
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-        ManageAppointments viewOrderDetails = new ManageAppointments(userProcessContainer,ecosystem, userAccount);
+        ManageAppointments viewOrderDetails = new ManageAppointments(userProcessContainer,newlife, userAccount);
         userProcessContainer.add("ViewOrderDetails", viewOrderDetails);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

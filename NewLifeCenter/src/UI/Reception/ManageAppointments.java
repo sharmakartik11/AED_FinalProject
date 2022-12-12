@@ -26,22 +26,22 @@ public class ManageAppointments extends javax.swing.JPanel {
      * Creates new form ViewOrderInformation
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccountDirectory userAccountList;
     private List<WorkRequest> workRequestList;
     UserAccount account;
-    public ManageAppointments(JPanel userProcessContainer,NewLife ecosystem, UserAccount account) {
+    public ManageAppointments(JPanel userProcessContainer,NewLife newlife, UserAccount account) {
         initComponents();
         creatingListenerToManageOrder();
         this.userProcessContainer=userProcessContainer;
-        this.ecosystem=ecosystem;
+        this.newlife=newlife;
         this.account = account;
         fillRstReqTable();
     }
      private void fillRstReqTable(){
         DefaultTableModel model = (DefaultTableModel) tblRestaurantWorkRequest.getModel();
         model.setRowCount(0);
-        workRequestList = ecosystem.getWorkQueue().getWorkRequestListHospital(account);
+        workRequestList = newlife.getWorkQueue().getWorkRequestListHospital(account);
         for (WorkRequest request : workRequestList) {
             Object[] row = new Object[tblRestaurantWorkRequest.getColumnCount()];
             row[0] = request;
@@ -61,7 +61,7 @@ public class ManageAppointments extends javax.swing.JPanel {
                     if (request instanceof LabWorkRequest) {
                         LabWorkRequest orderWorkRequest = (LabWorkRequest) tblRestaurantWorkRequest.getValueAt(selectedRow, 0);
                         if (orderWorkRequest != null) {
-                           AcceptOrRejectOrder acceptOrderOrNotJPanel = new AcceptOrRejectOrder(userProcessContainer,ecosystem,account,orderWorkRequest);
+                           AcceptOrRejectOrder acceptOrderOrNotJPanel = new AcceptOrRejectOrder(userProcessContainer,newlife,account,orderWorkRequest);
                            userProcessContainer.add("AcceptOrderOrNotJPanel", acceptOrderOrNotJPanel);
                            CardLayout layout = (CardLayout)userProcessContainer.getLayout();
                            layout.next(userProcessContainer);
@@ -185,7 +185,7 @@ public class ManageAppointments extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-        ReceptionWorkArea adminWorkAreaJPanel = new ReceptionWorkArea(userProcessContainer,account, ecosystem);
+        ReceptionWorkArea adminWorkAreaJPanel = new ReceptionWorkArea(userProcessContainer,account, newlife);
         userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

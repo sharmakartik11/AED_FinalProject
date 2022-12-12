@@ -44,6 +44,7 @@ public class PatientAreaPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }
     private void MedicineOrderIssue(){
+        System.out.println("inside fn");
         MedicineOrder medicineOrderJPanel = new MedicineOrder(userProcessContainer, userAccount, newLife);
         userProcessContainer.add("MedicineOrder", medicineOrderJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

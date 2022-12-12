@@ -21,25 +21,25 @@ public class InsuranceAdmin extends javax.swing.JPanel {
      * Creates new form InsuranceAdmin
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccount userAccount;
-    public InsuranceAdmin(JPanel userProcessContainer, UserAccount userAccount, NewLife ecosystem) {
+    public InsuranceAdmin(JPanel userProcessContainer, UserAccount userAccount, NewLife newlife) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
-        this.ecosystem=ecosystem;
+        this.newlife=newlife;
         this.userAccount = userAccount; 
     }
     
     // Manage orders
     private void manageClaims() {
-        ViewOrderDetails viewOrderDetails = new ViewOrderDetails(userProcessContainer,ecosystem,userAccount);
+        ViewOrderDetails viewOrderDetails = new ViewOrderDetails(userProcessContainer,newlife,userAccount);
         userProcessContainer.add("ViewOrderDetails",viewOrderDetails);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }
     
     private void manageInfo() {
-        PatientRecords updatePatientInfoJPanel = new PatientRecords(userProcessContainer,ecosystem, userAccount);
+        PatientRecords updatePatientInfoJPanel = new PatientRecords(userProcessContainer,newlife, userAccount);
         userProcessContainer.add("updatePatientInfoJPanel",updatePatientInfoJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

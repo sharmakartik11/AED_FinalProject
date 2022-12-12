@@ -79,7 +79,7 @@ public class EmergencyInfo extends javax.swing.JPanel {
         jLabel1.setText("EMERGENCY INFORMATION");
 
         tblCustomerOrderStatus.setBackground(new java.awt.Color(204, 255, 204));
-        tblCustomerOrderStatus.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        tblCustomerOrderStatus.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         tblCustomerOrderStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

@@ -30,20 +30,20 @@ public class PatientRecords extends javax.swing.JPanel {
      * Creates new form PatientRecords
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccount userAccount;
     InsuranceBody insuranceBody;
-    public PatientRecords(JPanel userProcessContainer, NewLife ecosystem, UserAccount userAccount) {
+    public PatientRecords(JPanel userProcessContainer, NewLife newlife, UserAccount userAccount) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
+        this.newlife = newlife;
         this.userAccount = userAccount;
         insuranceBody = (InsuranceBody)userAccount;
         populateTable();
     }
     
     private void populateTable() {
-        PatientDirectory patientDirectory = ecosystem.getPatientDirectory();
+        PatientDirectory patientDirectory = newlife.getPatientDirectory();
         DefaultTableModel model = (DefaultTableModel) tblMenu.getModel();
        
         model.setRowCount(0);
@@ -205,7 +205,7 @@ public class PatientRecords extends javax.swing.JPanel {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-        InsuranceAdmin adminWorkAreaJPanel = new InsuranceAdmin(userProcessContainer,userAccount, ecosystem);
+        InsuranceAdmin adminWorkAreaJPanel = new InsuranceAdmin(userProcessContainer,userAccount, newlife);
         userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

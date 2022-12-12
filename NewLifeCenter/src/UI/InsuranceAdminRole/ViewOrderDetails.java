@@ -26,15 +26,15 @@ public class ViewOrderDetails extends javax.swing.JPanel {
      * Creates new form ViewOrderDetails
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccountDirectory userAccountList;
     private List<WorkRequest> workRequestList;
     UserAccount account;
-    public ViewOrderDetails(JPanel userProcessContainer,NewLife ecosystem, UserAccount account) {
+    public ViewOrderDetails(JPanel userProcessContainer,NewLife newlife, UserAccount account) {
         initComponents();
         creatingListenerToManageOrder();
         this.userProcessContainer=userProcessContainer;
-        this.ecosystem=ecosystem;
+        this.newlife=newlife;
         this.account = account;
         fillClaimRequestTable();
     }
@@ -42,7 +42,7 @@ public class ViewOrderDetails extends javax.swing.JPanel {
     private void fillClaimRequestTable(){
         DefaultTableModel model = (DefaultTableModel) tblRestaurantWorkRequest.getModel();
         model.setRowCount(0);
-        workRequestList = ecosystem.getWorkQueue().getWorkRequestListInsurance(account);
+        workRequestList = newlife.getWorkQueue().getWorkRequestListInsurance(account);
         for (WorkRequest request : workRequestList) {
             Object[] row = new Object[tblRestaurantWorkRequest.getColumnCount()];
             row[0] = request;
@@ -61,7 +61,7 @@ public class ViewOrderDetails extends javax.swing.JPanel {
                     if (request instanceof InsuranceWorkRequest) {
                         InsuranceWorkRequest orderWorkRequest = (InsuranceWorkRequest) tblRestaurantWorkRequest.getValueAt(selectedRow, 0);
                         if (orderWorkRequest != null) {
-                           AcceptOrderPanel acceptOrderOrNotJPanel = new AcceptOrderPanel(userProcessContainer,ecosystem,account,orderWorkRequest);
+                           AcceptOrderPanel acceptOrderOrNotJPanel = new AcceptOrderPanel(userProcessContainer,newlife,account,orderWorkRequest);
                            userProcessContainer.add("AcceptOrderOrNotJPanel", acceptOrderOrNotJPanel);
                            CardLayout layout = (CardLayout)userProcessContainer.getLayout();
                            layout.next(userProcessContainer);
@@ -165,7 +165,7 @@ public class ViewOrderDetails extends javax.swing.JPanel {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-        InsuranceAdmin adminWorkAreaJPanel = new InsuranceAdmin(userProcessContainer,account, ecosystem);
+        InsuranceAdmin adminWorkAreaJPanel = new InsuranceAdmin(userProcessContainer,account, newlife);
         userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

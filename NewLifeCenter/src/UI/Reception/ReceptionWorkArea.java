@@ -19,32 +19,32 @@ public class ReceptionWorkArea extends javax.swing.JPanel {
      * Creates new form ReceptionWorkArea
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccount userAccount;
     /** Creates new form AdminWorkAreaJPanel */
-    public ReceptionWorkArea(JPanel userProcessContainer, UserAccount userAccount, NewLife ecosystem) {
+    public ReceptionWorkArea(JPanel userProcessContainer, UserAccount userAccount, NewLife newlife) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
-        this.ecosystem=ecosystem;
+        this.newlife=newlife;
         this.userAccount = userAccount;        
     }
     
     private void manageOrders() {
-        ManageAppointments viewOrderDetails = new ManageAppointments(userProcessContainer,ecosystem,userAccount);
+        ManageAppointments viewOrderDetails = new ManageAppointments(userProcessContainer,newlife,userAccount);
         userProcessContainer.add("ViewOrderDetails",viewOrderDetails);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }
     
     private void manageInfo() {
-        ManageReceptionInformation updateRestaurantInfoJPanel = new ManageReceptionInformation(userProcessContainer,ecosystem, userAccount);
+        ManageReceptionInformation updateRestaurantInfoJPanel = new ManageReceptionInformation(userProcessContainer,newlife, userAccount);
         userProcessContainer.add("UpdateRestaurantInfoJPanel",updateRestaurantInfoJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }
     
     private void managePatients() {
-        ManagePatients managePatientsJPanel = new ManagePatients(userProcessContainer,ecosystem, userAccount);
+        ManagePatients managePatientsJPanel = new ManagePatients(userProcessContainer,newlife, userAccount);
         userProcessContainer.add("UpdateRestaurantInfoJPanel",managePatientsJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

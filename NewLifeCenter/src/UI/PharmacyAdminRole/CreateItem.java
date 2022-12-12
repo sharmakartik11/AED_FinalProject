@@ -109,6 +109,7 @@ public class CreateItem extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MANAGE INVENTORY");
 
+        tblMenu.setForeground(new java.awt.Color(204, 255, 204));
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

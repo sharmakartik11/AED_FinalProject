@@ -25,15 +25,15 @@ public class ManagePatients extends javax.swing.JPanel {
      * Creates new form ManagePatients
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccountDirectory userAccountDirectory;
     UserAccount userAccount;
 
-    public ManagePatients(JPanel userProcessContainer,NewLife ecosystem,UserAccount userAccount) {
+    public ManagePatients(JPanel userProcessContainer,NewLife newlife,UserAccount userAccount) {
         initComponents();
  
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
+        this.newlife = newlife;
         this.userAccount = userAccount;
         populateTable();
     }
@@ -383,7 +383,7 @@ public class ManagePatients extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Enter a valid phone number !");
             return;
         }
-        if(ecosystem.getUserAccountDirectory().checkUsernameUnique(txtPatientName.getText())){
+        if(newlife.getUserAccountDirectory().checkUsernameUnique(txtPatientName.getText())){
                 Patient patient = new Patient();
                 patient.setName(txtPatientName.getText());
                 patient.setPhone(txtContact.getText());
@@ -399,8 +399,8 @@ public class ManagePatients extends javax.swing.JPanel {
                 patient.setWeight(txtWeight.getText());
                 patient.setOxygenlevel(txtO2Level.getText());
                 patient.setRole(new PatientRole());
-                ecosystem.getUserAccountDirectory().addUserAccount(patient);
-                ecosystem.getPatientDirectory().addPatient(patient);
+                newlife.getUserAccountDirectory().addUserAccount(patient);
+                newlife.getPatientDirectory().addPatient(patient);
             
                 populateTable();
                 txtPatientName.setText("");
@@ -422,7 +422,7 @@ public class ManagePatients extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddItemActionPerformed
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
-        ReceptionWorkArea receptionAreaJPanel = new ReceptionWorkArea(userProcessContainer,userAccount, ecosystem);
+        ReceptionWorkArea receptionAreaJPanel = new ReceptionWorkArea(userProcessContainer,userAccount, newlife);
         userProcessContainer.add("receptionWorkArea", receptionAreaJPanel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -432,7 +432,7 @@ public class ManagePatients extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAgeActionPerformed
 private void populateTable() {
-        PatientDirectory patientDirectory = ecosystem.getPatientDirectory();
+        PatientDirectory patientDirectory = newlife.getPatientDirectory();
         DefaultTableModel model = (DefaultTableModel) tblMenu.getModel();
        
         model.setRowCount(0);

@@ -26,20 +26,20 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
      * Creates new form InsuranceClaimApprovalForm
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccount userAccount;
     Patient patient;
     InsuranceProviderDirectory insuranceProviderDirectory;
     private int indexTreatment = -1;
     private int indexInsuranceAdmin = -1;
     ArrayList<String> treatmentFillList;
-    public InsuranceClaimApprovalForm(JPanel userProcessContainer, UserAccount userAccount, NewLife ecosystem) {
+    public InsuranceClaimApprovalForm(JPanel userProcessContainer, UserAccount userAccount, NewLife newlife) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
+        this.newlife = newlife;
         this.userAccount = userAccount;
         patient = (Patient) userAccount;
-        insuranceProviderDirectory = ecosystem.getInsuranceProviderDirectory();
+        insuranceProviderDirectory = newlife.getInsuranceProviderDirectory();
         treatmentFillList = new ArrayList<String>();
         fillDropDownList(insuranceProviderDirectory.getInsuranceProviderList());
         fillTreatmentList(treatmentFillList);
@@ -80,7 +80,7 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
             }
             orderWorkRequest.setRequestDate(new Date());
             orderWorkRequest.setStatus("Request to Insurance Admin");
-            ecosystem.getWorkQueue().addWorkRequest(orderWorkRequest);
+            newlife.getWorkQueue().addWorkRequest(orderWorkRequest);
             return true;
     }
 
@@ -244,7 +244,7 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
         // TODO add your handling code here:
-        PatientAreaPanel patientAreaJPanel = new PatientAreaPanel(userProcessContainer, userAccount, ecosystem);
+        PatientAreaPanel patientAreaJPanel = new PatientAreaPanel(userProcessContainer, userAccount, newlife);
         userProcessContainer.add("PatientAreaJPanel", patientAreaJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

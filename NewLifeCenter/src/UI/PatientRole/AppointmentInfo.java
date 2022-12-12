@@ -65,6 +65,7 @@ public class AppointmentInfo extends javax.swing.JPanel {
                     WorkRequest request = (WorkRequest) tblCustomerOrderStatus.getValueAt(selectedRow, 0);
                     if (request instanceof LabWorkRequest) {
                         LabWorkRequest orderWorkRequest = (LabWorkRequest) tblCustomerOrderStatus.getValueAt(selectedRow, 0);
+                        System.out.println(orderWorkRequest);
                         if (orderWorkRequest != null) {
                            AppointmentFeedback orderInfoAndFeedbackJPanel = new AppointmentFeedback(userProcessContainer,newLife,userAccount,orderWorkRequest);
                            userProcessContainer.add("OrderInfoAndFeedbackJPanel", orderInfoAndFeedbackJPanel);
@@ -111,7 +112,7 @@ public class AppointmentInfo extends javax.swing.JPanel {
         jLabel1.setText("APPOINTMENTS ");
 
         tblCustomerOrderStatus.setBackground(new java.awt.Color(204, 255, 204));
-        tblCustomerOrderStatus.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        tblCustomerOrderStatus.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
         tblCustomerOrderStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

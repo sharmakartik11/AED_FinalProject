@@ -25,22 +25,22 @@ public class DoctorAreaPanel extends javax.swing.JPanel {
      * Creates new form DoctorAreaPanel
      */
      private JPanel userProcessContainer;
-    private NewLife ecosystem;
+    private NewLife newlife;
     private UserAccount userAccount;
     private List<WorkRequest> workRequestList;
-    public DoctorAreaPanel(JPanel userProcessContainer, UserAccount userAccount, NewLife ecosystem) {
+    public DoctorAreaPanel(JPanel userProcessContainer, UserAccount userAccount, NewLife newlife) {
         initComponents();
         creatingListenerForDelInfo();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
-        this.ecosystem = ecosystem;
+        this.newlife = newlife;
         fillDelRqTable();
     }
     
     private void fillDelRqTable(){
         DefaultTableModel model = (DefaultTableModel) tblDeliveryManWorkRequest.getModel();
         model.setRowCount(0);
-        workRequestList = ecosystem.getWorkQueue().getWorkRequestListDoctor(userAccount);
+        workRequestList = newlife.getWorkQueue().getWorkRequestListDoctor(userAccount);
         for (WorkRequest request : workRequestList) {
             Object[] row = new Object[tblDeliveryManWorkRequest.getColumnCount()];
             row[0] = request;
@@ -60,7 +60,7 @@ public class DoctorAreaPanel extends javax.swing.JPanel {
                     if (request instanceof LabWorkRequest) {
                         LabWorkRequest orderWorkRequest = (LabWorkRequest) tblDeliveryManWorkRequest.getValueAt(selectedRow, 0);
                         if (orderWorkRequest != null) {
-                           WorkRequestDocPanel processOrderJPanel = new WorkRequestDocPanel(userProcessContainer,ecosystem,userAccount,orderWorkRequest);
+                           WorkRequestDocPanel processOrderJPanel = new WorkRequestDocPanel(userProcessContainer,newlife,userAccount,orderWorkRequest);
                            userProcessContainer.add("ProcessOrderJPanel", processOrderJPanel);
                            CardLayout layout = (CardLayout)userProcessContainer.getLayout();
                            layout.next(userProcessContainer);

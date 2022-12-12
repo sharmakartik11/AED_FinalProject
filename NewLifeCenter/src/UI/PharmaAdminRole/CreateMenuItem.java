@@ -98,8 +98,7 @@ public class CreateMenuItem extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblMenu.setBackground(new java.awt.Color(204, 255, 204));
-        tblMenu.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        tblMenu.setForeground(new java.awt.Color(204, 255, 204));
+        tblMenu.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

@@ -25,16 +25,16 @@ public class ManagePharmacy extends javax.swing.JPanel {
      * Creates new form ManagePharmacy
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccountDirectory userAccountList;
-    public ManagePharmacy(JPanel userProcessContainer, NewLife ecosystem) {
+    public ManagePharmacy(JPanel userProcessContainer, NewLife newlife) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
+        this.newlife = newlife;
     }
     
     private void fillTable() {
-        PharmacyDirectory pharmacyDirectory = ecosystem.getPharmacyDirectory();
+        PharmacyDirectory pharmacyDirectory = newlife.getPharmacyDirectory();
         DefaultTableModel model = (DefaultTableModel) tblRestaurantAdmin.getModel();
         model.setRowCount(0);
         for (Pharmacy pharmacy : pharmacyDirectory.getPharmacyList()) {
@@ -303,7 +303,7 @@ public class ManagePharmacy extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Enter a valid phone number");
             return;
         }
-        if (ecosystem.getUserAccountDirectory().checkUsernameUnique(userNameTextfield.getText())) {
+        if (newlife.getUserAccountDirectory().checkUsernameUnique(userNameTextfield.getText())) {
             Pharmacy pharmacy = new Pharmacy();
             pharmacy.setPharmacyName(restaurantNameTextfield.getText());
             pharmacy.setUsername(userNameTextfield.getText());
@@ -311,8 +311,8 @@ public class ManagePharmacy extends javax.swing.JPanel {
             pharmacy.setAddress(address.getText());
             pharmacy.setContact(contact.getText());
             pharmacy.setRole(new PharmaAdminRole());
-            ecosystem.getUserAccountDirectory().addUserAccount(pharmacy);
-            ecosystem.getPharmacyDirectory().addPharmacy(pharmacy);
+            newlife.getUserAccountDirectory().addUserAccount(pharmacy);
+            newlife.getPharmacyDirectory().addPharmacy(pharmacy);
             fillTable();
             userNameTextfield.setText("");
             passwordTextfield.setText("");
@@ -352,7 +352,7 @@ public class ManagePharmacy extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             Pharmacy pharmacy = (Pharmacy) tblRestaurantAdmin.getValueAt(selectedRow, 0);
-            PharmacyDirectory pharmacyDirectory = ecosystem.getPharmacyDirectory();
+            PharmacyDirectory pharmacyDirectory = newlife.getPharmacyDirectory();
             pharmacyDirectory.deletePharmacy(pharmacy);
             JOptionPane.showMessageDialog(null, "Pharmacy admin "  + userNameTextfield.getText() + " deleted");
             fillTable();

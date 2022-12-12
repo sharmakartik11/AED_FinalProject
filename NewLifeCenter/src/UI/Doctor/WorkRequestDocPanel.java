@@ -31,14 +31,14 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
      * Creates new form WorkRequestDocPanel
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccount userAccount;
     LabWorkRequest workRequest;
     LabWorkRequest labTestWorkRequest;
-    public WorkRequestDocPanel(JPanel userProcessContainer, NewLife ecosystem, UserAccount account, LabWorkRequest workRequest) {
+    public WorkRequestDocPanel(JPanel userProcessContainer, NewLife newlife, UserAccount account, LabWorkRequest workRequest) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
+        this.newlife = newlife;
         this.userAccount = account;
         this.workRequest = workRequest;
         changeButtonText();
@@ -259,9 +259,13 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         zoomLinkTxtField.setEditable(false);
         zoomLinkTxtField.setBackground(new java.awt.Color(255, 255, 204));
         zoomLinkTxtField.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        zoomLinkTxtField.setForeground(new java.awt.Color(255, 255, 255));
         zoomLinkTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         zoomLinkTxtField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        zoomLinkTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zoomLinkTxtFieldActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 12;
@@ -357,7 +361,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         // TODO add your handling code here:
-        DoctorAreaPanel doctorAreaJPanel = new DoctorAreaPanel(userProcessContainer, userAccount, ecosystem);
+        DoctorAreaPanel doctorAreaJPanel = new DoctorAreaPanel(userProcessContainer, userAccount, newlife);
         userProcessContainer.add("doctorAreaJPanel", doctorAreaJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -369,6 +373,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
 
     private void btnStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatusActionPerformed
         // TODO add your handling code here:
+        
          if (workRequest.getStatus().equals("Doctor Assigned")) {
             ThreadLocalRandom random = ThreadLocalRandom.current();
             int leftLimit = 48; // numeral '0'
@@ -377,6 +382,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
             Random r = new Random();
             String generatedString = r.ints(leftLimit, rightLimit + 1).filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97)).limit(targetStringLength).collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
             String url = "https://zoom.us/j/"+random.nextLong(10_000_000_000L, 100_000_000_000L)+"?pwd="+generatedString;
+             System.out.println(url);
             zoomLinkTxtField.setText(url);
             workRequest.setZoomLink(zoomLinkTxtField.getText());
             sendMail();

@@ -88,9 +88,12 @@ public class MedicineOrder extends javax.swing.JPanel {
     }
     
     private void populateMenu() {
+        
         defaultTableModel.setRowCount(0);
         Pharmacy pharmacy = pharmacyDirectory.getPharmacyList().get(index);
+        //System.out.println(pharmacyDirectory.getPharmacyList().get(index).getMenu());
         PharmacyInventory pharmacyInventory = pharmacy.getMenu();
+        
         List<PharmacyMedicine> items = pharmacyInventory.getItemList();
         for (PharmacyMedicine item : items) {
             Object[] row = new Object[defaultTableModel.getColumnCount()];

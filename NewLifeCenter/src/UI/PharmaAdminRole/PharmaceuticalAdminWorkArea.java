@@ -35,12 +35,12 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }
 
-    private void manageCDCApproval() {
-        MedicineApprovalForm medicineApprovalJPanel = new MedicineApprovalForm(userProcessContainer,userAccount,newlife);
-        userProcessContainer.add("MedicineApprovalJPanel",medicineApprovalJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }
+//    private void manageCDCApproval() {
+//        MedicineApprovalForm medicineApprovalJPanel = new MedicineApprovalForm(userProcessContainer,userAccount,newlife);
+//        userProcessContainer.add("MedicineApprovalJPanel",medicineApprovalJPanel);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.next(userProcessContainer);
+//    }
     private void manageOrders() {
         ViewOrderInformation viewOrderDetails = new ViewOrderInformation(userProcessContainer,newlife,userAccount);
         userProcessContainer.add("ViewOrderDetails",viewOrderDetails);
@@ -70,14 +70,15 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         manageOrganizationJButton = new javax.swing.JButton();
         manageOrganizationJButton1 = new javax.swing.JButton();
         userJButton = new javax.swing.JButton();
-        userJButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 102));
+        setLayout(new java.awt.GridBagLayout());
 
         manageOrganizationJButton.setBackground(new java.awt.Color(255, 255, 204));
         manageOrganizationJButton.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -87,6 +88,14 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 121;
+        gridBagConstraints.ipady = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(77, 207, 0, 0);
+        add(manageOrganizationJButton, gridBagConstraints);
 
         manageOrganizationJButton1.setBackground(new java.awt.Color(255, 255, 204));
         manageOrganizationJButton1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -96,6 +105,14 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
                 manageOrganizationJButton1ActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 97;
+        gridBagConstraints.ipady = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 207, 0, 0);
+        add(manageOrganizationJButton1, gridBagConstraints);
 
         userJButton.setBackground(new java.awt.Color(255, 255, 204));
         userJButton.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -105,55 +122,26 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
                 userJButtonActionPerformed(evt);
             }
         });
-
-        userJButton1.setBackground(new java.awt.Color(255, 255, 204));
-        userJButton1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        userJButton1.setText("CDC Medicine Approval");
-        userJButton1.setMaximumSize(new java.awt.Dimension(221, 59));
-        userJButton1.setMinimumSize(new java.awt.Dimension(221, 59));
-        userJButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userJButton1ActionPerformed(evt);
-            }
-        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipady = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 207, 0, 0);
+        add(userJButton, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("WELCOME PHARMACEUTICAL ADMIN !");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(207, 207, 207)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(userJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(userJButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manageOrganizationJButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(manageOrganizationJButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(userJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(userJButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(48, 6, 0, 6);
+        add(jLabel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
@@ -168,16 +156,11 @@ public class PharmaceuticalAdminWorkArea extends javax.swing.JPanel {
         manageInfo();
     }//GEN-LAST:event_userJButtonActionPerformed
 
-    private void userJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButton1ActionPerformed
-        manageCDCApproval();
-    }//GEN-LAST:event_userJButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton manageOrganizationJButton1;
     private javax.swing.JButton userJButton;
-    private javax.swing.JButton userJButton1;
     // End of variables declaration//GEN-END:variables
 }

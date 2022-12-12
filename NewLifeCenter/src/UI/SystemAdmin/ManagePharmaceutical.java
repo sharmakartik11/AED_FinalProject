@@ -27,18 +27,18 @@ public class ManagePharmaceutical extends javax.swing.JPanel {
      * Creates new form ManagePharmaceutical
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccountDirectory userAccountList;
-    public ManagePharmaceutical(JPanel userProcessContainer,NewLife ecosystem) {
+    public ManagePharmaceutical(JPanel userProcessContainer,NewLife newlife) {
         initComponents();
         creatingListenerForModification();
         this.userProcessContainer=userProcessContainer;
-        this.ecosystem=ecosystem;
+        this.newlife=newlife;
         fillTable();
     }
     
     private void fillTable() {
-        PharmaceuticalDirectory pharmaceuticalDirectory = ecosystem.getPharmaceuticalDirectory();
+        PharmaceuticalDirectory pharmaceuticalDirectory = newlife.getPharmaceuticalDirectory();
         DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
         model.setRowCount(0);
         for (Pharmaceutical pharmaceutical : pharmaceuticalDirectory.getPharmaceuticalList()) {
@@ -331,7 +331,7 @@ public class ManagePharmaceutical extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Enter a valid phone number");
             return;
         }
-        if(ecosystem.getUserAccountDirectory().checkUsernameUnique(userNameTextfield.getText())) {
+        if(newlife.getUserAccountDirectory().checkUsernameUnique(userNameTextfield.getText())) {
             Pharmaceutical pharmaceutical = new Pharmaceutical();
             pharmaceutical.setPharmaceuticalName(txtPharName.getText());
             pharmaceutical.setUsername(userNameTextfield.getText());
@@ -339,8 +339,8 @@ public class ManagePharmaceutical extends javax.swing.JPanel {
             pharmaceutical.setContact(contact.getText());
             pharmaceutical.setPassword(passwordTextfield.getText());
             pharmaceutical.setRole(new PharmaceuticalAdminRole());
-            ecosystem.getUserAccountDirectory().addUserAccount(pharmaceutical);
-            ecosystem.getPharmaceuticalDirectory().addPharmaceutical(pharmaceutical);
+            newlife.getUserAccountDirectory().addUserAccount(pharmaceutical);
+            newlife.getPharmaceuticalDirectory().addPharmaceutical(pharmaceutical);
             fillTable();
             userNameTextfield.setText("");
             passwordTextfield.setText("");
@@ -383,7 +383,7 @@ public class ManagePharmaceutical extends javax.swing.JPanel {
           int selectedRow = tblCustomers.getSelectedRow();
         if (selectedRow >= 0) {
             Pharmaceutical pharmaceutical = (Pharmaceutical) tblCustomers.getValueAt(selectedRow, 0);
-            PharmaceuticalDirectory pharmaceuticalDirectory = ecosystem.getPharmaceuticalDirectory();
+            PharmaceuticalDirectory pharmaceuticalDirectory = newlife.getPharmaceuticalDirectory();
             pharmaceuticalDirectory.deletePharmaceutical(pharmaceutical);
             JOptionPane.showMessageDialog(null, "Pharmaceutical admin"  + userNameTextfield.getText() + " deleted");
             fillTable();

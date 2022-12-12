@@ -20,13 +20,13 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
      * Creates new form ManageReceptionInformation
      */
     JPanel userProcessContainer;
-    NewLife ecosystem;
+    NewLife newlife;
     UserAccount userAccount;
     Pharmacy restaurant;
 
-    public ManageReceptionInformation(JPanel userProcessContainer, NewLife ecosystem, UserAccount userAccount) {
+    public ManageReceptionInformation(JPanel userProcessContainer, NewLife newlife, UserAccount userAccount) {
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
+        this.newlife = newlife;
         this.userAccount = userAccount;
         restaurant = (Pharmacy)userAccount;
         initComponents();
@@ -174,7 +174,7 @@ public class ManageReceptionInformation extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        ReceptionWorkArea adminWorkAreaJPanel = new ReceptionWorkArea(userProcessContainer,userAccount, ecosystem);
+        ReceptionWorkArea adminWorkAreaJPanel = new ReceptionWorkArea(userProcessContainer,userAccount, newlife);
         userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
