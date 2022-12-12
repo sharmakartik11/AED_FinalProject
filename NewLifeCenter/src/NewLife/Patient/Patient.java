@@ -13,7 +13,7 @@ import NewLife.UserAccount.UserAccount;
  */
 public class Patient extends UserAccount{
     
-      private String patientName;
+    private String patientName;
     private String heartRate;
     private String age;
     private String address;

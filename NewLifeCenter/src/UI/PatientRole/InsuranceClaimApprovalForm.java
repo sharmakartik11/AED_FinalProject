@@ -38,6 +38,7 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
+        patient = (Patient) userAccount;
         insuranceProviderDirectory = ecosystem.getInsuranceProviderDirectory();
         treatmentFillList = new ArrayList<String>();
         fillDropDownList(insuranceProviderDirectory.getInsuranceProviderList());

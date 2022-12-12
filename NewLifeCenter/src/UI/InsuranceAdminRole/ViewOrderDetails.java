@@ -6,10 +6,15 @@ package UI.InsuranceAdminRole;
 
 import NewLife.UserAccount.UserAccount;
 import NewLife.UserAccount.UserAccountDirectory;
+import NewLife.WorkList.InsuranceWorkRequest;
 import NewLife.WorkList.WorkRequest;
 import NewLifeCenter.NewLife;
+import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.JPanel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,6 +32,45 @@ public class ViewOrderDetails extends javax.swing.JPanel {
     UserAccount account;
     public ViewOrderDetails(JPanel userProcessContainer,NewLife ecosystem, UserAccount account) {
         initComponents();
+        creatingListenerToManageOrder();
+        this.userProcessContainer=userProcessContainer;
+        this.ecosystem=ecosystem;
+        this.account = account;
+        fillClaimRequestTable();
+    }
+    
+    private void fillClaimRequestTable(){
+        DefaultTableModel model = (DefaultTableModel) tblRestaurantWorkRequest.getModel();
+        model.setRowCount(0);
+        workRequestList = ecosystem.getWorkQueue().getWorkRequestListInsurance(account);
+        for (WorkRequest request : workRequestList) {
+            Object[] row = new Object[tblRestaurantWorkRequest.getColumnCount()];
+            row[0] = request;
+            row[1] = request.getPatient();
+            row[2] = request.getStatus();
+            model.addRow(row);
+        }
+        }
+    
+    private void creatingListenerToManageOrder() {
+        tblRestaurantWorkRequest.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                int selectedRow = tblRestaurantWorkRequest.getSelectedRow();
+                if (selectedRow >= 0) {
+                    WorkRequest request = (WorkRequest) tblRestaurantWorkRequest.getValueAt(selectedRow, 0);
+                    if (request instanceof InsuranceWorkRequest) {
+                        InsuranceWorkRequest orderWorkRequest = (InsuranceWorkRequest) tblRestaurantWorkRequest.getValueAt(selectedRow, 0);
+                        if (orderWorkRequest != null) {
+                           AcceptOrderPanel acceptOrderOrNotJPanel = new AcceptOrderPanel(userProcessContainer,ecosystem,account,orderWorkRequest);
+                           userProcessContainer.add("AcceptOrderOrNotJPanel", acceptOrderOrNotJPanel);
+                           CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+                           layout.next(userProcessContainer);
+                        }
+                    }
+
+                }
+            }
+        });
     }
 
     /**
@@ -38,19 +82,100 @@ public class ViewOrderDetails extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnback = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRestaurantWorkRequest = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(0, 102, 102));
+
+        btnback.setBackground(new java.awt.Color(255, 255, 204));
+        btnback.setText("BACK");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbackActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setBackground(new java.awt.Color(204, 255, 204));
+
+        tblRestaurantWorkRequest.setBackground(new java.awt.Color(204, 255, 204));
+        tblRestaurantWorkRequest.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        tblRestaurantWorkRequest.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "MESSAGE", "SENDER", "STATUS"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblRestaurantWorkRequest);
+
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("MANAGE CLAIMS");
+        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 81, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 863, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(308, 308, 308)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(205, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
+        // TODO add your handling code here:
+        InsuranceAdmin adminWorkAreaJPanel = new InsuranceAdmin(userProcessContainer,account, ecosystem);
+        userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnbackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnback;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblRestaurantWorkRequest;
     // End of variables declaration//GEN-END:variables
 }

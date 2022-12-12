@@ -4,6 +4,13 @@
  */
 package UI.InsuranceAdminRole;
 
+import NewLife.UserAccount.UserAccount;
+import NewLife.WorkList.InsuranceWorkRequest;
+import NewLifeCenter.NewLife;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author shivanidatar
@@ -13,8 +20,50 @@ public class AcceptOrderPanel extends javax.swing.JPanel {
     /**
      * Creates new form AcceptOrderPanel
      */
-    public AcceptOrderPanel() {
+    JPanel userProcessContainer;
+    UserAccount userAccount;
+    NewLife ecosystem;
+    InsuranceWorkRequest insuranceWorkRequest;
+    public AcceptOrderPanel(JPanel userProcessContainer, NewLife ecosystem, UserAccount userAccount, InsuranceWorkRequest insuranceWorkRequest) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = ecosystem;
+        this.userAccount = userAccount;
+        this.insuranceWorkRequest = insuranceWorkRequest;
+        change();
+        display();
+    }
+    
+    private void change() {
+        switch(insuranceWorkRequest.getStatus()){
+            case "Request to Insurance Admin": {
+                btnaccept.setText("Accept request");
+                btndecline.setVisible(true);
+                break;
+            }
+            case "Request Accepted": {
+                btnaccept.setText("Approve request");
+                btndecline.setVisible(false);
+                break;
+            }
+            default: {
+                btndecline.setVisible(false);
+                btnaccept.setVisible(false);
+                break;
+            }
+        }
+        
+    }
+    
+    private void display() {
+
+        patientName.setText(insuranceWorkRequest.getPatientName());
+        amount.setText(String.valueOf(insuranceWorkRequest.getClaimAmount()));
+        treatment.setText(insuranceWorkRequest.getTreatment());
+        statusvalue.setText(insuranceWorkRequest.getStatus());
+
+
+
     }
 
     /**
@@ -26,19 +75,203 @@ public class AcceptOrderPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
+        patientName = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        amount = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        treatment = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btnback = new javax.swing.JButton();
+        btndecline = new javax.swing.JButton();
+        btnaccept = new javax.swing.JButton();
+        status = new javax.swing.JLabel();
+        statusvalue = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(0, 102, 102));
+
+        jLabel4.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Patient Name");
+
+        patientName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        patientName.setText("<value>");
+
+        jLabel5.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Claim Amount");
+
+        amount.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        amount.setText("<value>");
+
+        jLabel6.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("  Treatment");
+
+        treatment.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        treatment.setText("<value>");
+
+        jLabel1.setFont(new java.awt.Font("Malayalam Sangam MN", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("CLAIM APPROVAL");
+
+        btnback.setBackground(new java.awt.Color(255, 255, 204));
+        btnback.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnback.setText("BACK");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbackActionPerformed(evt);
+            }
+        });
+
+        btndecline.setBackground(new java.awt.Color(255, 255, 204));
+        btndecline.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btndecline.setText("DECLINE");
+        btndecline.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeclineActionPerformed(evt);
+            }
+        });
+
+        btnaccept.setBackground(new java.awt.Color(255, 255, 204));
+        btnaccept.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnaccept.setText("ACCEPT");
+        btnaccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnacceptActionPerformed(evt);
+            }
+        });
+
+        status.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        status.setForeground(new java.awt.Color(255, 255, 255));
+        status.setText("  Status");
+
+        statusvalue.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        statusvalue.setText("<value>");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(btnback)
+                        .addGap(105, 105, 105)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(jLabel4)
+                        .addGap(231, 231, 231)
+                        .addComponent(patientName, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(jLabel5)
+                        .addGap(224, 224, 224)
+                        .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(btnaccept, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(127, 127, 127)
+                        .addComponent(btndecline, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(status)))
+                        .addGap(247, 247, 247)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(statusvalue, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(treatment, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(patientName)))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(amount))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel6))
+                    .addComponent(treatment))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(status)
+                    .addComponent(statusvalue))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnaccept, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btndecline, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
+        // TODO add your handling code here:
+        ViewOrderDetails viewOrderDetails = new ViewOrderDetails(userProcessContainer,ecosystem, userAccount);
+        userProcessContainer.add("ViewOrderDetails", viewOrderDetails);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnbackActionPerformed
+
+    private void btnacceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacceptActionPerformed
+        // TODO add your handling code here:
+        if (insuranceWorkRequest.getStatus().equals("Request to Insurance Admin")) {
+            insuranceWorkRequest.setStatus("Request Accepted"); 
+            JOptionPane.showMessageDialog(null, " Request Accepted");
+        }
+        else if(insuranceWorkRequest.getStatus().equals("Request Accepted")) {
+            insuranceWorkRequest.setStatus("Request Approved");
+            if(insuranceWorkRequest.getDeliverMan() == null){
+                JOptionPane.showMessageDialog(null, "Request Approved");
+            }
+        }
+        else {  
+            btnaccept.setVisible(false);
+        }
+        change();
+        statusvalue.setText(insuranceWorkRequest.getStatus());
+    }//GEN-LAST:event_btnacceptActionPerformed
+
+    private void btnDeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeclineActionPerformed
+        // TODO add your handling code here:
+        insuranceWorkRequest.setStatus("Claim Request Denied");
+        statusvalue.setText("Claim Request Denied");
+    }//GEN-LAST:event_btnDeclineActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel amount;
+    private javax.swing.JButton btnaccept;
+    private javax.swing.JButton btnback;
+    private javax.swing.JButton btndecline;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel patientName;
+    private javax.swing.JLabel status;
+    private javax.swing.JLabel statusvalue;
+    private javax.swing.JLabel treatment;
     // End of variables declaration//GEN-END:variables
 }
